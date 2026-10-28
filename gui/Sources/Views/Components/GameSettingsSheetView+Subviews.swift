@@ -8,7 +8,7 @@ extension GameSettingsSheetView {
     func footerBar(onDismiss: @escaping () -> Void) -> some View {
         VStack(spacing: 10) {
             HStack(spacing: 12) {
-                Button("Restore Defaults") {
+                Button(L10n.string("Restore Defaults")) {
                     viewModel.activeSettingsConfig = GameRuntimeConfig()
                 }
                 .buttonStyle(NXSecondaryButtonStyle())
@@ -20,7 +20,7 @@ extension GameSettingsSheetView {
                 
                 Spacer()
                 
-                Button("Cancel") {
+                Button(L10n.string("Cancel")) {
                     viewModel.gameForSettingsSheet = nil
                     onDismiss()
                 }
@@ -34,7 +34,7 @@ extension GameSettingsSheetView {
                         .stroke(viewModel.settingsModalFocusIndex == 6 ? NXTheme.secondary : Color.clear, lineWidth: 1.5)
                 )
                 
-                Button("Save Settings") {
+                Button(L10n.string("Save Settings")) {
                     viewModel.saveRuntimeConfig(viewModel.activeSettingsConfig, for: game)
                     viewModel.gameForSettingsSheet = nil
                     onDismiss()
@@ -129,7 +129,7 @@ extension GameSettingsSheetView {
                 Spacer()
                 
                 if isFocused {
-                    Text("Focused")
+                    L10nText("Focused")
                         .font(.system(size: 9, weight: .bold, design: .rounded))
                         .foregroundColor(.white)
                         .padding(.horizontal, 6)

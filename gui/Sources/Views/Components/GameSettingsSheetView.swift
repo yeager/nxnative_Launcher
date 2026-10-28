@@ -39,7 +39,7 @@ public struct GameSettingsSheetView: View {
                             .lineLimit(1)
                         
                         HStack(spacing: 6) {
-                            Text(game.platform == .macApp ? "Mac App" : "iOS IPA")
+                            Text(game.platform == .macApp ? L10n.string("Mac App") : L10n.string("iOS IPA"))
                                 .font(.system(size: 10, weight: .bold))
                                 .padding(.horizontal, 6)
                                 .padding(.vertical, 2)
@@ -102,10 +102,10 @@ public struct GameSettingsSheetView: View {
                             ) {
                                 Toggle(isOn: $viewModel.activeSettingsConfig.enable60FPS) {
                                     VStack(alignment: .leading, spacing: 3) {
-                                        Text(viewModel.activeSettingsConfig.enable60FPS ? "60 FPS (Unlocked)" : "30 FPS (Switch Default)")
+                                        Text(viewModel.activeSettingsConfig.enable60FPS ? L10n.string("60 FPS (Unlocked)") : L10n.string("30 FPS (Switch Default)"))
                                             .font(.system(size: 13, weight: .semibold, design: .rounded))
                                             .foregroundColor(NXTheme.textPrimary)
-                                        Text("Unlocks the game's internal frame limiter to 60 FPS with smooth VSync.")
+                                        L10nText("Unlocks the game's internal frame limiter to 60 FPS with smooth VSync.")
                                             .font(.system(size: 11))
                                             .foregroundColor(NXTheme.textSecondary)
                                     }
@@ -122,10 +122,10 @@ public struct GameSettingsSheetView: View {
                             ) {
                                 Toggle(isOn: $viewModel.activeSettingsConfig.enableMetalHUD) {
                                     VStack(alignment: .leading, spacing: 3) {
-                                        Text(viewModel.activeSettingsConfig.enableMetalHUD ? "Metal HUD Enabled" : "Metal HUD Disabled")
+                                        Text(viewModel.activeSettingsConfig.enableMetalHUD ? L10n.string("Metal HUD Enabled") : L10n.string("Metal HUD Disabled"))
                                             .font(.system(size: 13, weight: .semibold, design: .rounded))
                                             .foregroundColor(NXTheme.textPrimary)
-                                        Text("Displays Apple's official in-game performance overlay with real-time FPS and GPU metrics.")
+                                        L10nText("Displays Apple's official in-game performance overlay with real-time FPS and GPU metrics.")
                                             .font(.system(size: 11))
                                             .foregroundColor(NXTheme.textSecondary)
                                     }
@@ -142,8 +142,8 @@ public struct GameSettingsSheetView: View {
                             ) {
                                 VStack(alignment: .leading, spacing: 8) {
                                     Picker("", selection: $viewModel.activeSettingsConfig.isDockedMode) {
-                                        Text("Docked (TV Mode · 1080p)").tag(true)
-                                        Text("Handheld (Portable · 720p)").tag(false)
+                                        L10nText("Docked (TV Mode · 1080p)").tag(true)
+                                        L10nText("Handheld (Portable · 720p)").tag(false)
                                     }
                                     .pickerStyle(.segmented)
                                     
@@ -164,7 +164,7 @@ public struct GameSettingsSheetView: View {
                             ) {
                                 VStack(alignment: .leading, spacing: 10) {
                                     HStack {
-                                        Text("Render Resolution Scale:")
+                                        L10nText("Render Resolution Scale:")
                                             .font(.system(size: 12, weight: .medium))
                                             .foregroundColor(NXTheme.textSecondary)
                                         Spacer()
@@ -177,19 +177,19 @@ public struct GameSettingsSheetView: View {
                                         .tint(NXTheme.primary)
                                     
                                     HStack(spacing: 8) {
-                                        Button("50% (Performance)") {
+                                        Button(L10n.string("50% (Performance)")) {
                                             viewModel.activeSettingsConfig.renderScale = 0.50
                                         }
                                         .buttonStyle(NXSecondaryButtonStyle())
                                         .controlSize(.mini)
                                         
-                                        Button("75% (Balanced)") {
+                                        Button(L10n.string("75% (Balanced)")) {
                                             viewModel.activeSettingsConfig.renderScale = 0.75
                                         }
                                         .buttonStyle(NXSecondaryButtonStyle())
                                         .controlSize(.mini)
                                         
-                                        Button("100% (Native)") {
+                                        Button(L10n.string("100% (Native)")) {
                                             viewModel.activeSettingsConfig.renderScale = 1.00
                                         }
                                         .buttonStyle(NXSecondaryButtonStyle())
@@ -207,10 +207,10 @@ public struct GameSettingsSheetView: View {
                             ) {
                                 Toggle(isOn: $viewModel.activeSettingsConfig.enableMetalFXUpscale) {
                                     VStack(alignment: .leading, spacing: 3) {
-                                        Text(viewModel.activeSettingsConfig.enableMetalFXUpscale ? "MetalFX Spatial Upscaler Enabled" : "Standard Bilinear Upscaling")
+                                        Text(viewModel.activeSettingsConfig.enableMetalFXUpscale ? L10n.string("MetalFX Spatial Upscaler Enabled") : L10n.string("Standard Bilinear Upscaling"))
                                             .font(.system(size: 13, weight: .semibold, design: .rounded))
                                             .foregroundColor(NXTheme.textPrimary)
-                                        Text("Uses Apple Silicon spatial neural upscaling for crisp high-resolution presentation.")
+                                        L10nText("Uses Apple Silicon spatial neural upscaling for crisp high-resolution presentation.")
                                             .font(.system(size: 11))
                                             .foregroundColor(NXTheme.textSecondary)
                                     }
