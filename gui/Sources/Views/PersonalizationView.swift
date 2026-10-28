@@ -22,7 +22,7 @@ public struct PersonalizationView: View {
     
     private var headerView: some View {
         HStack {
-            Text("Personalization & Appearance")
+            L10nText("Personalization & Appearance")
                 .font(.system(size: 18, weight: .bold, design: .rounded))
                 .foregroundColor(NXTheme.textPrimary)
             
@@ -39,7 +39,7 @@ public struct PersonalizationView: View {
                 }) {
                     HStack(spacing: 6) {
                         Image(systemName: "arrow.counterclockwise")
-                        Text("Reset Defaults")
+                        L10nText("Reset Defaults")
                     }
                 }
                 .buttonStyle(NXSecondaryButtonStyle())
@@ -50,7 +50,7 @@ public struct PersonalizationView: View {
     private var highlightColorCard: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
-                Text("Accent & Highlight Theme")
+                L10nText("Accent & Highlight Theme")
                     .font(.system(size: 14, weight: .bold, design: .rounded))
                     .foregroundColor(NXTheme.textPrimary)
                 
@@ -139,7 +139,7 @@ public struct PersonalizationView: View {
     private var soundEffectsCard: some View {
         GlassCard {
             HStack {
-                Text("Console UI Sound Effects")
+                L10nText("Console UI Sound Effects")
                     .font(.system(size: 13, weight: .bold, design: .rounded))
                     .foregroundColor(NXTheme.textPrimary)
                 

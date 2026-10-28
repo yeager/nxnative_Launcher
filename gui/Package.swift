@@ -3,6 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "NXNativeGUI",
+    defaultLocalization: "en",
     platforms: [
         .macOS(.v13)
     ],
@@ -12,7 +13,10 @@ let package = Package(
     targets: [
         .executableTarget(
             name: "NXNativeGUI",
-            path: "Sources"
+            path: "Sources",
+            resources: [
+                .process("Resources")
+            ]
         )
     ]
 )

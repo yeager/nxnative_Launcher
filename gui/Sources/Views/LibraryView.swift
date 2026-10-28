@@ -67,14 +67,14 @@ public struct LibraryView: View {
             isPresented: $viewModel.showDeleteConfirm,
             titleVisibility: .visible
         ) {
-            Button("Delete File", role: .destructive) {
+            Button(L10n.string("Delete File"), role: .destructive) {
                 if let g = viewModel.gameToDelete {
                     viewModel.deletePortedGame(g)
                 }
             }
-            Button("Cancel", role: .cancel) {}
+            Button(L10n.string("Cancel"), role: .cancel) {}
         } message: {
-            Text("This action will permanently delete the compiled game file from your storage.")
+            L10nText("This action will permanently delete the compiled game file from your storage.")
         }
     }
     
@@ -85,15 +85,15 @@ public struct LibraryView: View {
                 .foregroundColor(NXTheme.secondary.opacity(0.4))
             
             VStack(spacing: 4) {
-                Text("No Ported Games Found")
+                L10nText("No Ported Games Found")
                     .font(.system(size: 14, weight: .bold, design: .rounded))
                     .foregroundColor(NXTheme.textPrimary)
-                Text("Games you convert (.app and .ipa) will automatically appear here.")
+                L10nText("Games you convert (.app and .ipa) will automatically appear here.")
                     .font(.system(size: 12))
                     .foregroundColor(NXTheme.textSecondary)
             }
             
-            Button("Convert a Game Now") {
+            Button(L10n.string("Convert a Game Now")) {
                 SoundEffectService.shared.play(.click)
                 viewModel.selectedTab = 0
             }

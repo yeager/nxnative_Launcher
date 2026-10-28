@@ -16,14 +16,14 @@ struct NXNativeGUIApp: App {
             SidebarCommands()
             
             CommandGroup(replacing: .appInfo) {
-                Button("About NxNative Launcher") {
+                Button(L10n.string("About NxNative Launcher")) {
                     SoundEffectService.shared.play(.click)
                     viewModel.showAboutSheet = true
                 }
             }
             
             CommandGroup(after: .appInfo) {
-                Button("Check for Updates...") {
+                Button(L10n.string("Check for Updates...")) {
                     SoundEffectService.shared.play(.click)
                     viewModel.openUpdateCheckerAndAutoInstall()
                 }

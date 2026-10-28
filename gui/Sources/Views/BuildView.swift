@@ -42,10 +42,10 @@ public struct BuildView: View {
             }
             .padding(20)
         }
-        .alert("Apple Command Line Tools", isPresented: $viewModel.showCltInstallAlert) {
-            Button("OK", role: .cancel) {}
+        .alert(L10n.string("Apple Command Line Tools"), isPresented: $viewModel.showCltInstallAlert) {
+            Button(L10n.string("OK"), role: .cancel) {}
         } message: {
-            Text("Apple's official installer dialog has opened on screen. Follow Apple's prompt to complete the installation. Once finished, click 'Re-check' to verify.")
+            L10nText("Apple's official installer dialog has opened on screen. Follow Apple's prompt to complete the installation. Once finished, click 'Re-check' to verify.")
         }
     }
     
@@ -54,15 +54,15 @@ public struct BuildView: View {
     private var wizardStepperHeader: some View {
         GlassCard {
             HStack(spacing: 0) {
-                stepIndicator(step: 1, title: "1. Select Game", icon: "gamecontroller.fill")
+                stepIndicator(step: 1, title: L10n.string("1. Select Game"), icon: "gamecontroller.fill")
                 
                 stepDivider(isCompleted: viewModel.buildWizardStep > 1)
                 
-                stepIndicator(step: 2, title: "2. Configure & Output", icon: "slider.horizontal.3")
+                stepIndicator(step: 2, title: L10n.string("2. Configure & Output"), icon: "slider.horizontal.3")
                 
                 stepDivider(isCompleted: viewModel.buildWizardStep > 2)
                 
-                stepIndicator(step: 3, title: "3. Porting Execution", icon: "hammer.fill")
+                stepIndicator(step: 3, title: L10n.string("3. Porting Execution"), icon: "hammer.fill")
             }
         }
     }

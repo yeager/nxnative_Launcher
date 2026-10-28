@@ -101,7 +101,7 @@ public struct CompatibilityView: View {
             Image(systemName: "tray")
                 .font(.system(size: 38))
                 .foregroundColor(NXTheme.secondary.opacity(0.4))
-            Text("No compatible games match your filter.")
+            L10nText("No compatible games match your filter.")
                 .font(.system(size: 13, weight: .semibold))
                 .foregroundColor(NXTheme.textSecondary)
         }

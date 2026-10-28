@@ -31,28 +31,28 @@ public struct SystemView: View {
         .sheet(isPresented: $viewModel.showInstallerSheet) {
             InstallerSheetView(viewModel: viewModel)
         }
-        .alert("Apple Command Line Tools", isPresented: $viewModel.showCltInstallAlert) {
-            Button("OK", role: .cancel) {}
+        .alert(L10n.string("Apple Command Line Tools"), isPresented: $viewModel.showCltInstallAlert) {
+            Button(L10n.string("OK"), role: .cancel) {}
         } message: {
-            Text("Apple's official installer dialog has opened on screen. Follow Apple's prompt to complete the installation. Once finished, click 'Re-check' to verify.")
+            L10nText("Apple's official installer dialog has opened on screen. Follow Apple's prompt to complete the installation. Once finished, click 'Re-check' to verify.")
         }
         .confirmationDialog(
             "Uninstall \(viewModel.dependencyToUninstall?.name ?? "this tool")?",
             isPresented: $viewModel.showUninstallConfirm,
             titleVisibility: .visible
         ) {
-            Button("Uninstall Tool", role: .destructive) {
+            Button(L10n.string("Uninstall Tool"), role: .destructive) {
                 viewModel.executeUninstall()
             }
-            Button("Cancel", role: .cancel) {}
+            Button(L10n.string("Cancel"), role: .cancel) {}
         } message: {
-            Text("This will remove the selected package from your system environment. You can reinstall it at any time.")
+            L10nText("This will remove the selected package from your system environment. You can reinstall it at any time.")
         }
     }
     
     private var headerView: some View {
         HStack {
-            Text("Settings & System Architecture")
+            L10nText("Settings & System Architecture")
                 .font(.system(size: 18, weight: .bold, design: .rounded))
                 .foregroundColor(NXTheme.textPrimary)
             
@@ -65,7 +65,7 @@ public struct SystemView: View {
                 }) {
                     HStack(spacing: 6) {
                         Image(systemName: "arrow.down.circle.fill")
-                        Text("Install All Missing (\(viewModel.prerequisites.missingList.count))")
+                        Text(verbatim: L10n.string("Install All Missing") + " (" + String(viewModel.prerequisites.missingList.count) + ")")
                     }
                 }
                 .buttonStyle(NXAccentButtonStyle())
@@ -77,7 +77,7 @@ public struct SystemView: View {
                 }) {
                     HStack(spacing: 6) {
                         Image(systemName: "arrow.triangle.2.circlepath")
-                        Text("Repair All")
+                        L10nText("Repair All")
                     }
                 }
                 .buttonStyle(NXSecondaryButtonStyle())
@@ -93,7 +93,7 @@ public struct SystemView: View {
                         ProgressView().controlSize(.small)
                     } else {
                         Image(systemName: "arrow.clockwise")
-                        Text("Re-check")
+                        L10nText("Re-check")
                     }
                 }
             }

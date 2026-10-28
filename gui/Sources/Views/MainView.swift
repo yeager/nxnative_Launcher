@@ -9,13 +9,13 @@ public struct MainView: View {
     }
     
     private let tabs: [(tag: Int, title: String, icon: String)] = [
-        (0, "Port Game", "play.circle.fill"),
-        (1, "Library", "books.vertical.fill"),
-        (2, "Compatibility", "checklist.checked"),
-        (3, "Controls", "gamecontroller.fill"),
-        (4, "Personalize", "paintpalette.fill"),
-        (5, "Settings", "gearshape.fill"),
-        (6, "Console", "terminal.fill")
+        (0, L10n.string("Port Game"), "play.circle.fill"),
+        (1, L10n.string("Library"), "books.vertical.fill"),
+        (2, L10n.string("Compatibility"), "checklist.checked"),
+        (3, L10n.string("Controls"), "gamecontroller.fill"),
+        (4, L10n.string("Personalize"), "paintpalette.fill"),
+        (5, L10n.string("Settings"), "gearshape.fill"),
+        (6, L10n.string("Console"), "terminal.fill")
     ]
     
     private var isCompactNav: Bool {
@@ -129,7 +129,7 @@ public struct MainView: View {
                                     Circle()
                                         .fill(NXTheme.secondary)
                                         .frame(width: 5, height: 5)
-                                    Text("Update")
+                                    L10nText("Update")
                                         .font(.system(size: 9, weight: .bold))
                                         .foregroundColor(.white)
                                 }
@@ -214,7 +214,7 @@ public struct MainView: View {
                     HStack(spacing: 6) {
                         ProgressView()
                             .controlSize(.small)
-                        Text("Building...")
+                        L10nText("Building...")
                             .font(.system(size: 11, weight: .bold, design: .rounded))
                             .foregroundColor(.white)
                     }
@@ -231,7 +231,7 @@ public struct MainView: View {
                 } else {
                     StatusBadge(
                         isPositive: viewModel.isProdKeysValid && viewModel.isNxnativeValid,
-                        text: (viewModel.isProdKeysValid && viewModel.isNxnativeValid) ? "Environment Ready" : "Setup Required (Check Settings)",
+                        text: (viewModel.isProdKeysValid && viewModel.isNxnativeValid) ? L10n.string("Environment Ready") : L10n.string("Setup Required (Check Settings)"),
                         showText: false
                     )
                 }
