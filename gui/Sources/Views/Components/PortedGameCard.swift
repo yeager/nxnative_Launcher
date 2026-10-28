@@ -106,10 +106,10 @@ public struct PortedGameCard: View {
                                 if isLaunching {
                                     ProgressView()
                                         .controlSize(.mini)
-                                    Text("Starting...")
+                                    L10nText("Starting...")
                                 } else {
                                     Image(systemName: "play.fill")
-                                    Text("Play")
+                                    L10nText("Play")
                                 }
                             }
                             .font(.system(size: 11, weight: .bold, design: .rounded))
@@ -145,15 +145,15 @@ public struct PortedGameCard: View {
                         Button(action: {
                             viewModel.gameForSettingsSheet = game
                         }) {
-                            Label("Game Settings...", systemImage: "slider.horizontal.3")
+                            L10nLabel("Game Settings...", systemImage: "slider.horizontal.3")
                         }
-                        Button("Copy Path") {
+                        Button(L10n.string("Copy Path")) {
                             let pb = NSPasteboard.general
                             pb.clearContents()
                             pb.setString(game.url.path, forType: .string)
                         }
                         Divider()
-                        Button("Delete Port...", role: .destructive) {
+                        Button(L10n.string("Delete Port..."), role: .destructive) {
                             onDelete(game)
                         }
                     } label: {

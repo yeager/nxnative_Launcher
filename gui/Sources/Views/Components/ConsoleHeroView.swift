@@ -115,12 +115,12 @@ public struct ConsoleHeroView: View {
                                 if isLaunching {
                                     ProgressView()
                                         .controlSize(.small)
-                                    Text("Launching...")
+                                    L10nText("Launching...")
                                         .font(.system(size: 13, weight: .bold, design: .rounded))
                                 } else {
                                     Image(systemName: "play.fill")
                                         .font(.system(size: 12))
-                                    Text("Play Game")
+                                    L10nText("Play Game")
                                         .font(.system(size: 14, weight: .bold, design: .rounded))
                                 }
                             }
@@ -154,7 +154,7 @@ public struct ConsoleHeroView: View {
                                 } else {
                                     Image(systemName: "arrow.up.forward.app")
                                         .font(.system(size: 13))
-                                    Text("Send to iPhone / iPad")
+                                    L10nText("Send to iPhone / iPad")
                                         .font(.system(size: 14, weight: .bold, design: .rounded))
                                 }
                             }
@@ -180,7 +180,7 @@ public struct ConsoleHeroView: View {
                         }) {
                             HStack(spacing: 6) {
                                 Image(systemName: "airdrop")
-                                Text("AirDrop")
+                                L10nText("AirDrop")
                                     .font(.system(size: 12, weight: .semibold, design: .rounded))
                             }
                             .foregroundColor(NXTheme.textPrimary)
@@ -205,7 +205,7 @@ public struct ConsoleHeroView: View {
                         }) {
                             HStack(spacing: 6) {
                                 Image(systemName: "folder.fill")
-                                Text("Reveal .ipa")
+                                L10nText("Reveal .ipa")
                                     .font(.system(size: 12, weight: .semibold, design: .rounded))
                             }
                             .foregroundColor(NXTheme.textPrimary)
@@ -230,7 +230,7 @@ public struct ConsoleHeroView: View {
                     }) {
                         HStack(spacing: 6) {
                             Image(systemName: "slider.horizontal.3")
-                            Text("Options")
+                            L10nText("Options")
                                 .font(.system(size: 12, weight: .semibold, design: .rounded))
                         }
                         .foregroundColor(NXTheme.textPrimary)
@@ -255,7 +255,7 @@ public struct ConsoleHeroView: View {
                     }) {
                         HStack(spacing: 6) {
                             Image(systemName: "folder.fill")
-                            Text("Saves")
+                            L10nText("Saves")
                                 .font(.system(size: 12, weight: .semibold, design: .rounded))
                         }
                         .foregroundColor(NXTheme.textSecondary)
