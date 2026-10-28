@@ -23,7 +23,7 @@ public struct FileCard: View {
                     .truncationMode(.middle)
                 
                 HStack(spacing: 6) {
-                    Text(item.type.rawValue)
+                    Text(verbatim: L10n.string(item.type.rawValue))
                         .font(.system(size: 10, weight: .bold))
                         .padding(.horizontal, 7)
                         .padding(.vertical, 2)

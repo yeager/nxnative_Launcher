@@ -232,18 +232,18 @@ public struct BuildOptionsSection: View {
     
     private func missingRequirementHint() -> String {
         if viewModel.selectedGame == nil {
-            return "Please select a game first."
+            return L10n.string("Please select a game first.")
         }
         if !viewModel.isProdKeysValid {
-            return "prod.keys missing. Configure in Settings."
+            return L10n.string("prod.keys missing. Configure in Settings.")
         }
         if !viewModel.isNxnativeValid {
-            return "nxnative core missing. Configure in Settings."
+            return L10n.string("nxnative core missing. Configure in Settings.")
         }
         if viewModel.isDiskSpaceLow {
-            return "Insufficient disk space."
+            return L10n.string("Insufficient disk space.")
         }
-        return "Complete setup requirements to port."
+        return L10n.string("Complete setup requirements to port.")
     }
     
     private func platformCard(_ plat: TargetPlatform) -> some View {

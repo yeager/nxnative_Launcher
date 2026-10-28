@@ -77,7 +77,7 @@ public struct SystemAppearanceCard: View {
                                     }
                                 }
                                 
-                                Text(mode.rawValue)
+                                Text(verbatim: L10n.string(mode.rawValue))
                                     .font(.system(size: 11, weight: isSelected ? .bold : .semibold, design: .rounded))
                                     .foregroundColor(.white)
                             }

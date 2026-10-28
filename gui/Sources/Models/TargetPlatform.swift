@@ -9,9 +9,9 @@ public enum TargetPlatform: String, CaseIterable, Identifiable {
     public var title: String {
         switch self {
         case .macApp:
-            return "Mac App (.app)"
+            return L10n.string("Mac App (.app)")
         case .ios:
-            return "iOS / iPadOS (.ipa)"
+            return L10n.string("iOS / iPadOS (.ipa)")
         }
     }
     
@@ -27,9 +27,9 @@ public enum TargetPlatform: String, CaseIterable, Identifiable {
     public var subtitle: String {
         switch self {
         case .macApp:
-            return "Double-clickable native macOS app for Apple Silicon."
+            return L10n.string("Double-clickable native macOS app for Apple Silicon.")
         case .ios:
-            return "Sideloadable IPA package for iPhone 15 Pro and iPad."
+            return L10n.string("Sideloadable IPA package for iPhone 15 Pro and iPad.")
         }
     }
 }

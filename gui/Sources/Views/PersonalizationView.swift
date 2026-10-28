@@ -97,7 +97,7 @@ public struct PersonalizationView: View {
                                 }
                             }
                             
-                            Text(theme.rawValue)
+                            Text(verbatim: L10n.string(theme.rawValue))
                                 .font(.system(size: 12, weight: .bold, design: .rounded))
                                 .foregroundColor(.white)
                                 .lineLimit(1)
