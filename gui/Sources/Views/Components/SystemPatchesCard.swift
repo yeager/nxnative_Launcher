@@ -11,7 +11,7 @@ public struct SystemPatchesCard: View {
         GlassCard {
             VStack(alignment: .leading, spacing: 12) {
                 HStack {
-                    Label("Engine Compatibility Patches", systemImage: "checkmark.seal.fill")
+                    L10nLabel("Engine Compatibility Patches", systemImage: "checkmark.seal.fill")
                         .symbolRenderingMode(.hierarchical)
                         .font(.system(size: 13, weight: .bold, design: .rounded))
                         .foregroundColor(NXTheme.textPrimary)
@@ -24,7 +24,7 @@ public struct SystemPatchesCard: View {
                     }) {
                         HStack(spacing: 4) {
                             Image(systemName: "arrow.triangle.2.circlepath")
-                            Text("Verify & Apply")
+                            L10nText("Verify & Apply")
                         }
                     }
                     .buttonStyle(NXSecondaryButtonStyle())

@@ -23,7 +23,7 @@ public struct DependencyRow: View {
                         .foregroundColor(NXTheme.textPrimary)
                     
                     if item.isProtected {
-                        Text("System")
+                        L10nText("System")
                             .font(.system(size: 9, weight: .bold))
                             .padding(.horizontal, 5)
                             .padding(.vertical, 1)
@@ -53,7 +53,7 @@ public struct DependencyRow: View {
                 }) {
                     HStack(spacing: 4) {
                         Image(systemName: "arrow.down.circle")
-                        Text("Install")
+                        L10nText("Install")
                     }
                     .font(.system(size: 11, weight: .semibold))
                 }
@@ -61,7 +61,7 @@ public struct DependencyRow: View {
                 .controlSize(.small)
             } else if item.isAvailable {
                 HStack(spacing: 6) {
-                    Button("Repair") {
+                    Button(L10n.string("Repair")) {
                         viewModel.repairDependency(item)
                     }
                     .buttonStyle(NXSecondaryButtonStyle())

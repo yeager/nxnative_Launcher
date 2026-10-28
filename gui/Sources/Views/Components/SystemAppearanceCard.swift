@@ -33,7 +33,7 @@ public struct SystemAppearanceCard: View {
         GlassCard {
             VStack(alignment: .leading, spacing: 12) {
                 HStack {
-                    Text("App Icon & Color Appearance")
+                    L10nText("App Icon & Color Appearance")
                         .font(.system(size: 13, weight: .bold, design: .rounded))
                         .foregroundColor(.white)
                     

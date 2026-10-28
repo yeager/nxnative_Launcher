@@ -21,7 +21,7 @@ public struct InstallerSheetView: View {
                         .foregroundColor(NXTheme.secondary)
                     
                     VStack(alignment: .leading, spacing: 2) {
-                        Text("Dependency Installer")
+                        L10nText("Dependency Installer")
                             .font(.system(size: 16, weight: .bold, design: .rounded))
                             .foregroundColor(NXTheme.textPrimary)
                         if let item = viewModel.installerCurrentItem {
@@ -29,7 +29,7 @@ public struct InstallerSheetView: View {
                                 .font(.system(size: 12))
                                 .foregroundColor(NXTheme.textSecondary)
                         } else if !viewModel.isInstallingDependency {
-                            Text("Installation finished.")
+                            L10nText("Installation finished.")
                                 .font(.system(size: 12, weight: .semibold))
                                 .foregroundColor(Color(red: 0.13, green: 0.77, blue: 0.37))
                         }
@@ -81,7 +81,7 @@ public struct InstallerSheetView: View {
                 // Footer
                 HStack {
                     Spacer()
-                    Button("Close") {
+                    Button(L10n.string("Close")) {
                         dismiss()
                     }
                     .buttonStyle(NXPrimaryButtonStyle())
