@@ -33,13 +33,13 @@ public struct GameSettingsModsAndSavesView: View {
     private var modsSection: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
-                Label("Game Mods (LayeredFS)", systemImage: "puzzlepiece.extension.fill")
+                L10nLabel("Game Mods (LayeredFS)", systemImage: "puzzlepiece.extension.fill")
                     .font(.system(size: 13, weight: .bold, design: .rounded))
                     .foregroundColor(NXTheme.textPrimary)
 
                 Spacer()
 
-                Button("Open Mods Folder") {
+                Button(L10n.string("Open Mods Folder")) {
                     SoundEffectService.shared.play(.click)
                     modService.openModsFolder(for: titleId)
                 }
@@ -48,7 +48,7 @@ public struct GameSettingsModsAndSavesView: View {
             }
 
             if modsList.isEmpty {
-                Text("No mods found. Place LayeredFS mod folders (romfs / exefs) in the game mods directory.")
+                L10nText("No mods found. Place LayeredFS mod folders (romfs / exefs) in the game mods directory.")
                     .font(.system(size: 11))
                     .foregroundColor(NXTheme.textSecondary)
                     .padding(10)
@@ -64,7 +64,7 @@ public struct GameSettingsModsAndSavesView: View {
                                     .font(.system(size: 12, weight: .semibold, design: .rounded))
                                     .foregroundColor(NXTheme.textPrimary)
                                 if mod.hasCodePatches {
-                                    Text("Executable code patch detected")
+                                    L10nText("Executable code patch detected")
                                         .font(.system(size: 10))
                                         .foregroundColor(NXTheme.tertiary)
                                 }

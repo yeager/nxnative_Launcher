@@ -188,7 +188,7 @@ extension GameSettingsSheetView {
                 
                 VStack(alignment: .leading, spacing: 5) {
                     HStack(spacing: 6) {
-                        Text(isCustom ? "Custom Artwork Active" : "Automatic Artwork Active")
+                        Text(isCustom ? L10n.string("Custom Artwork Active") : L10n.string("Automatic Artwork Active"))
                             .font(.system(size: 12, weight: .bold, design: .rounded))
                             .foregroundColor(isCustom ? NXTheme.secondary : NXTheme.textPrimary)
                         
@@ -211,7 +211,7 @@ extension GameSettingsSheetView {
                         .fixedSize(horizontal: false, vertical: true)
                     
                     HStack(spacing: 8) {
-                        Button("Choose Custom Cover...") {
+                        Button(L10n.string("Choose Custom Cover...")) {
                             let panel = NSOpenPanel()
                             panel.title = "Select Game Cover Image"
                             panel.allowedContentTypes = [.jpeg, .png, .webP, .image]
@@ -226,7 +226,7 @@ extension GameSettingsSheetView {
                         .controlSize(.small)
                         
                         if isCustom {
-                            Button("Reset to Automatic") {
+                            Button(L10n.string("Reset to Automatic")) {
                                 SoundEffectService.shared.play(.click)
                                 GameCoverService.shared.resetCustomCover(for: game)
                             }
