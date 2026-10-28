@@ -68,7 +68,7 @@ public struct AboutLauncherView: View {
                             .clipShape(Capsule())
                         }
                         
-                        Text("Switch Native Port Builder & Library for Apple Silicon")
+                        L10nText("Switch Native Port Builder & Library for Apple Silicon")
                             .font(.system(size: 11.5, weight: .medium))
                             .foregroundColor(NXTheme.textSecondary)
                     }
@@ -95,7 +95,7 @@ public struct AboutLauncherView: View {
                                 .font(.system(size: 13.5, weight: .bold, design: .rounded))
                                 .foregroundColor(.white)
                             
-                            Text("Launcher Developer")
+                            L10nText("Launcher Developer")
                                 .font(.system(size: 9, weight: .bold, design: .rounded))
                                 .foregroundColor(.white)
                                 .padding(.horizontal, 7)
@@ -104,7 +104,7 @@ public struct AboutLauncherView: View {
                                 .clipShape(Capsule())
                         }
                         
-                        Text("macOS Native GUI, Game Library, Auto-Updater & Controller UX")
+                        L10nText("macOS Native GUI, Game Library, Auto-Updater & Controller UX")
                             .font(.system(size: 10.5))
                             .foregroundColor(NXTheme.textSecondary)
                     }
@@ -119,7 +119,7 @@ public struct AboutLauncherView: View {
                         HStack(spacing: 4) {
                             Image(systemName: "arrow.up.right")
                                 .font(.system(size: 10, weight: .bold))
-                            Text("GitHub")
+                            L10nText("GitHub")
                                 .font(.system(size: 11, weight: .bold))
                         }
                         .foregroundColor(.white)
@@ -139,7 +139,7 @@ public struct AboutLauncherView: View {
                 
                 // MARK: - Open Source Credits
                 VStack(alignment: .leading, spacing: 6) {
-                    Text("CORE ENGINE & ACKNOWLEDGEMENTS")
+                    L10nText("CORE ENGINE & ACKNOWLEDGEMENTS")
                         .font(.system(size: 9.5, weight: .bold, design: .rounded))
                         .foregroundColor(.white.opacity(0.75))
                         .tracking(0.6)
@@ -166,7 +166,7 @@ public struct AboutLauncherView: View {
                     }) {
                         HStack(spacing: 5) {
                             Image(systemName: "arrow.triangle.2.circlepath")
-                            Text("Check for Updates...")
+                            L10nText("Check for Updates...")
                         }
                         .foregroundColor(.white)
                     }
@@ -174,7 +174,7 @@ public struct AboutLauncherView: View {
                     
                     Spacer()
                     
-                    Button("Close") {
+                    Button(L10n.string("Close")) {
                         dismiss()
                     }
                     .buttonStyle(NXPrimaryButtonStyle())

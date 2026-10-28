@@ -101,7 +101,7 @@ public struct BuildBanners: View {
                 .foregroundColor(NXTheme.secondary)
             
             VStack(alignment: .leading, spacing: 2) {
-                Text("nxnative Update Available")
+                    L10nText("nxnative Update Available")
                     .font(.system(size: 13, weight: .bold, design: .rounded))
                     .foregroundColor(NXTheme.textPrimary)
                 Text("\(update.commitMessages.count) new commits available on GitHub repository.")
@@ -114,7 +114,7 @@ public struct BuildBanners: View {
             if viewModel.isApplyingUpdate {
                 ProgressView().controlSize(.small)
             } else {
-                Button("Update Now") {
+                Button(L10n.string("Update Now")) {
                     viewModel.applyUpdate()
                 }
                 .buttonStyle(NXPrimaryButtonStyle())
@@ -145,7 +145,7 @@ public struct BuildBanners: View {
                 .font(.system(size: 12, weight: .medium))
                 .foregroundColor(NXTheme.textPrimary)
             Spacer()
-            Button("Dismiss") {
+            Button(L10n.string("Dismiss")) {
                 viewModel.updateSuccessBanner = nil
             }
             .buttonStyle(.plain)
@@ -172,7 +172,7 @@ public struct BuildBanners: View {
                 .font(.system(size: 12, weight: .medium))
                 .foregroundColor(NXTheme.textPrimary)
             Spacer()
-            Button("Dismiss") {
+            Button(L10n.string("Dismiss")) {
                 viewModel.updateErrorBanner = nil
             }
             .buttonStyle(.plain)
@@ -197,7 +197,7 @@ public struct BuildBanners: View {
                 .foregroundColor(Color(red: 0.13, green: 0.77, blue: 0.37))
             
             VStack(alignment: .leading, spacing: 3) {
-                Text("Game Port Succeeded!")
+                L10nText("Game Port Succeeded!")
                     .font(.system(size: 14, weight: .bold, design: .rounded))
                     .foregroundColor(NXTheme.textPrimary)
                 Text(path)
