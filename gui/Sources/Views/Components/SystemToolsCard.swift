@@ -12,7 +12,7 @@ public struct SystemToolsCard: View {
             VStack(alignment: .leading, spacing: 14) {
                 // Header
                 HStack(spacing: 10) {
-                    Label("System Build Tools & Compilers", systemImage: "wrench.and.screwdriver.fill")
+                    L10nLabel("System Build Tools & Compilers", systemImage: "wrench.and.screwdriver.fill")
                         .symbolRenderingMode(.hierarchical)
                         .font(.system(size: 13, weight: .bold, design: .rounded))
                         .foregroundColor(NXTheme.textPrimary)
@@ -33,10 +33,10 @@ public struct SystemToolsCard: View {
                             HStack(spacing: 5) {
                                 if viewModel.isInstallingDependency {
                                     ProgressView().controlSize(.small)
-                                    Text("Installing...")
+                                    L10nText("Installing...")
                                 } else {
                                     Image(systemName: "arrow.down.circle.fill")
-                                    Text("Install All")
+                                    L10nText("Install All")
                                 }
                             }
                             .font(.system(size: 11, weight: .bold, design: .rounded))
@@ -57,7 +57,7 @@ public struct SystemToolsCard: View {
                             Text("Missing Dependencies Detected (\(viewModel.prerequisites.missingList.count) Items)")
                                 .font(.system(size: 13, weight: .bold, design: .rounded))
                                 .foregroundColor(NXTheme.textPrimary)
-                            Text("Homebrew and build dependencies will be installed sequentially one by one until finished.")
+                            L10nText("Homebrew and build dependencies will be installed sequentially one by one until finished.")
                                 .font(.system(size: 11))
                                 .foregroundColor(NXTheme.textSecondary)
                         }
@@ -71,10 +71,10 @@ public struct SystemToolsCard: View {
                             HStack(spacing: 6) {
                                 if viewModel.isInstallingDependency {
                                     ProgressView().controlSize(.small)
-                                    Text("Installing Dependencies...")
+                                    L10nText("Installing Dependencies...")
                                 } else {
                                     Image(systemName: "play.fill")
-                                    Text("Install All One by One")
+                                    L10nText("Install All One by One")
                                 }
                             }
                             .font(.system(size: 12, weight: .bold, design: .rounded))
@@ -113,7 +113,7 @@ public struct SystemToolsCard: View {
                         HStack(spacing: 8) {
                             if viewModel.isInstallingDependency {
                                 ProgressView().controlSize(.small)
-                                Text("Installing Dependencies One by One...")
+                                L10nText("Installing Dependencies One by One...")
                             } else {
                                 Image(systemName: "arrow.down.circle.fill")
                                 Text("Install All Dependencies One by One Until Finished (\(viewModel.prerequisites.missingList.count) Left)")
@@ -128,13 +128,13 @@ public struct SystemToolsCard: View {
                     HStack {
                         Image(systemName: "checkmark.seal.fill")
                             .foregroundColor(Color(red: 0.13, green: 0.77, blue: 0.37))
-                        Text("All compilers and build tools are ready for native compilation.")
+                        L10nText("All compilers and build tools are ready for native compilation.")
                             .font(.system(size: 11, weight: .medium))
                             .foregroundColor(Color(red: 0.13, green: 0.77, blue: 0.37))
                         
                         Spacer()
                         
-                        Button("Repair / Re-check All") {
+                        Button(L10n.string("Repair / Re-check All")) {
                             SoundEffectService.shared.play(.click)
                             viewModel.repairAllDependencies()
                         }

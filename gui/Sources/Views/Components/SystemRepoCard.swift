@@ -11,7 +11,7 @@ public struct SystemRepoCard: View {
         GlassCard {
             VStack(alignment: .leading, spacing: 10) {
                 HStack {
-                    Label("Core Repository (nxnative)", systemImage: "folder.badge.gearshape")
+                    L10nLabel("Core Repository (nxnative)", systemImage: "folder.badge.gearshape")
                         .symbolRenderingMode(.hierarchical)
                         .font(.system(size: 13, weight: .bold, design: .rounded))
                         .foregroundColor(NXTheme.textPrimary)
@@ -34,7 +34,7 @@ public struct SystemRepoCard: View {
                                 .lineLimit(1)
                                 .truncationMode(.middle)
                         } else {
-                            Text("Select or download the nxnative repository folder...")
+                            L10nText("Select or download the nxnative repository folder...")
                                 .font(.system(size: 12))
                                 .foregroundColor(NXTheme.textSecondary)
                         }
@@ -49,7 +49,7 @@ public struct SystemRepoCard: View {
                             .stroke(NXTheme.specularRim, lineWidth: 0.8)
                     )
                     
-                    Button("Change...") {
+                    Button(L10n.string("Change...")) {
                         viewModel.selectNxnativeFolder()
                     }
                     .buttonStyle(NXSecondaryButtonStyle())
@@ -58,12 +58,12 @@ public struct SystemRepoCard: View {
                         if viewModel.isCloningRepository {
                             HStack(spacing: 6) {
                                 ProgressView().controlSize(.small)
-                                Text("Downloading...")
+                                L10nText("Downloading...")
                                     .font(.system(size: 11))
                                     .foregroundColor(NXTheme.secondary)
                             }
                         } else {
-                            Button("Download (1-Click)") {
+                            Button(L10n.string("Download (1-Click)")) {
                                 viewModel.cloneNxnativeRepository()
                             }
                             .buttonStyle(NXPrimaryButtonStyle())
@@ -91,19 +91,19 @@ public struct SystemRepoCard: View {
                     if viewModel.isApplyingUpdate {
                         HStack(spacing: 6) {
                             ProgressView().controlSize(.small)
-                            Text("Updating...")
+                            L10nText("Updating...")
                                 .font(.system(size: 11, weight: .semibold))
                                 .foregroundColor(NXTheme.primary)
                         }
                         .padding(.horizontal, 10)
                         .padding(.vertical, 5)
                     } else if let update = viewModel.updateInfo, update.hasUpdate {
-                        Button("Update & Install Now") {
+                        Button(L10n.string("Update & Install Now")) {
                             viewModel.openUpdateCheckerAndAutoInstall()
                         }
                         .buttonStyle(NXPrimaryButtonStyle())
                     } else {
-                        Button("Check for Updates") {
+                        Button(L10n.string("Check for Updates")) {
                             viewModel.openUpdateCheckerAndAutoInstall()
                         }
                         .buttonStyle(NXSecondaryButtonStyle())
