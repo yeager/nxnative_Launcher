@@ -19,7 +19,7 @@ public struct PortedGameCard: View {
             VStack(spacing: 12) {
                 // Top Platform Pill & Format
                 HStack {
-                    Text(game.platform == .macApp ? "Mac App" : "iOS IPA")
+                    Text(game.platform == .macApp ? L10n.string("Mac App") : L10n.string("iOS IPA"))
                         .font(.system(size: 10, weight: .bold, design: .rounded))
                         .padding(.horizontal, 7)
                         .padding(.vertical, 3)
@@ -39,7 +39,7 @@ public struct PortedGameCard: View {
                             .foregroundColor(.white)
                             .clipShape(Capsule())
                         
-                        Text(config.isDockedMode ? "Docked" : "Handheld")
+                        Text(config.isDockedMode ? L10n.string("Docked") : L10n.string("Handheld"))
                             .font(.system(size: 9, weight: .bold, design: .monospaced))
                             .padding(.horizontal, 6)
                             .padding(.vertical, 2)
@@ -128,7 +128,7 @@ public struct PortedGameCard: View {
                     }
                     .buttonStyle(NXSecondaryButtonStyle())
                     .controlSize(.regular)
-                    .help("Game Settings (60 FPS, Metal HUD, Docked, MetalFX)")
+                    .help(L10n.string("Game Settings (60 FPS, Metal HUD, Docked, MetalFX)"))
                     
                     Button(action: {
                         viewModel.revealInFinder(url: game.url)
@@ -138,7 +138,7 @@ public struct PortedGameCard: View {
                     }
                     .buttonStyle(NXSecondaryButtonStyle())
                     .controlSize(.regular)
-                    .help("Reveal in Finder")
+                    .help(L10n.string("Reveal in Finder"))
                     
                     // Context Menu with hidden chevron indicator to eliminate overlap
                     Menu {
@@ -171,7 +171,7 @@ public struct PortedGameCard: View {
                     .menuStyle(.borderlessButton)
                     .menuIndicator(.hidden)
                     .fixedSize()
-                    .help("More Options")
+                    .help(L10n.string("More Options"))
                     .nxNoFocusRing()
                 }
             }

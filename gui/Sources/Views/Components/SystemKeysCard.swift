@@ -15,13 +15,13 @@ public struct SystemKeysCard: View {
                         .symbolRenderingMode(.hierarchical)
                         .font(.system(size: 13, weight: .bold, design: .rounded))
                         .foregroundColor(NXTheme.textPrimary)
-                        .help("Keys are auto-detected from Ryujinx or chosen manually and used by nxnative to decrypt Switch game files.")
+                        .help(L10n.string("Keys are auto-detected from Ryujinx or chosen manually and used by nxnative to decrypt Switch game files."))
                     
                     Spacer()
                     
                     StatusBadge(
                         isPositive: viewModel.isProdKeysValid,
-                        text: viewModel.isProdKeysValid ? "Detected: \(viewModel.prodKeysSource)" : "Keys Missing"
+                        text: viewModel.isProdKeysValid ? L10n.format("Detected: %@", viewModel.prodKeysSource) : L10n.string("Keys Missing")
                     )
                 }
                 

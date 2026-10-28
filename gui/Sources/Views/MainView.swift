@@ -139,7 +139,7 @@ public struct MainView: View {
                                 .clipShape(Capsule())
                             }
                             .buttonStyle(.plain)
-                            .help("Click to install the latest NxNative Launcher update from GitHub")
+                            .help(L10n.string("Click to install the latest NxNative Launcher update from GitHub"))
                         }
                     }
                 }

@@ -71,7 +71,7 @@ public struct ControllerMappingCalloutOverlay: View {
                         .overlay(Capsule().stroke(NXTheme.specularRim, lineWidth: 0.8))
                     }
                     .buttonStyle(.plain)
-                    .help("Quickly swap face buttons between Nintendo Switch layout and Xbox/PC layout")
+                    .help(L10n.string("Quickly swap face buttons between Nintendo Switch layout and Xbox/PC layout"))
                 }
 
                 // Vector Controller View
