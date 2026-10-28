@@ -20,7 +20,7 @@ public struct ControllerLiveStatusCard: View {
                 
                 VStack(alignment: .leading, spacing: 3) {
                     HStack(spacing: 8) {
-                        Text(controllerService.isGamepadConnected ? controllerService.activeControllerName : "No Gamepad Connected")
+                        Text(controllerService.isGamepadConnected ? controllerService.activeControllerName : L10n.string("No Gamepad Connected"))
                             .font(.system(size: 13, weight: .bold, design: .rounded))
                             .foregroundColor(NXTheme.textPrimary)
                         
@@ -33,7 +33,7 @@ public struct ControllerLiveStatusCard: View {
                             .clipShape(Capsule())
                     }
                     
-                    Text(controllerService.isGamepadConnected ? "Live controller navigation active across all launcher tabs, carousel and deck." : "Plug in or pair any Switch, Xbox, PlayStation or 8BitDo gamepad via Bluetooth or USB.")
+                    Text(controllerService.isGamepadConnected ? L10n.string("Live controller navigation active across all launcher tabs, carousel and deck.") : L10n.string("Plug in or pair any Switch, Xbox, PlayStation or 8BitDo gamepad via Bluetooth or USB."))
                         .font(.system(size: 11))
                         .foregroundColor(NXTheme.textSecondary)
                 }
@@ -46,7 +46,7 @@ public struct ControllerLiveStatusCard: View {
                 }) {
                     HStack(spacing: 4) {
                         Image(systemName: "arrow.clockwise")
-                        Text("Detect")
+                        L10nText("Detect")
                     }
                     .font(.system(size: 11, weight: .semibold))
                 }

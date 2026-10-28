@@ -68,14 +68,14 @@ public struct AppLogoView: View {
                 SoundEffectService.shared.play(.click)
                 viewModel.showAboutSheet = true
             }) {
-                Label("About NxNative Launcher", systemImage: "info.circle")
+                L10nLabel("About NxNative Launcher", systemImage: "info.circle")
             }
             
             Button(action: {
                 SoundEffectService.shared.play(.click)
                 viewModel.openUpdateCheckerAndAutoInstall()
             }) {
-                Label("Check for Updates...", systemImage: "arrow.triangle.2.circlepath")
+                L10nLabel("Check for Updates...", systemImage: "arrow.triangle.2.circlepath")
             }
             
             Divider()
@@ -84,10 +84,10 @@ public struct AppLogoView: View {
                 SoundEffectService.shared.play(.tabSwitch)
                 viewModel.selectedTab = 4
             }) {
-                Label("Personalize Launcher...", systemImage: "paintpalette.fill")
+                L10nLabel("Personalize Launcher...", systemImage: "paintpalette.fill")
             }
         }
-        .help("Click to personalize launcher appearance & highlight color")
+        .help(L10n.string("Click to personalize launcher appearance & highlight color"))
         .onChange(of: colorScheme) { _ in
             if viewModel.iconAppearanceMode == .auto {
                 viewModel.updateDockIcon()

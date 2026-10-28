@@ -217,18 +217,18 @@ public struct BuildBanners: View {
                 }) {
                     HStack(spacing: 4) {
                         Image(systemName: "airdrop")
-                        Text("AirDrop")
+                        L10nText("AirDrop")
                     }
                 }
                 .buttonStyle(NXSecondaryButtonStyle())
             }
             
-            Button("View in Library") {
+            Button(L10n.string("View in Library")) {
                 viewModel.selectedTab = 1
             }
             .buttonStyle(NXSecondaryButtonStyle())
             
-            Button("Reveal in Finder") {
+            Button(L10n.string("Reveal in Finder")) {
                 viewModel.openOutputInFinder()
             }
             .buttonStyle(NXPrimaryButtonStyle())
@@ -251,7 +251,7 @@ public struct BuildBanners: View {
                 .foregroundColor(Color.red)
             
             VStack(alignment: .leading, spacing: 2) {
-                Text("Build Failed")
+                L10nText("Build Failed")
                     .font(.system(size: 13, weight: .bold, design: .rounded))
                     .foregroundColor(NXTheme.textPrimary)
                 Text(message)
@@ -262,7 +262,7 @@ public struct BuildBanners: View {
             
             Spacer()
             
-            Button("View Logs") {
+            Button(L10n.string("View Logs")) {
                 viewModel.selectedTab = 6
             }
             .buttonStyle(NXSecondaryButtonStyle())
