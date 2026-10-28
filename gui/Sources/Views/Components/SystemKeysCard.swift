@@ -11,7 +11,7 @@ public struct SystemKeysCard: View {
         GlassCard {
             VStack(alignment: .leading, spacing: 10) {
                 HStack {
-                    Label("Decryption Keys (prod.keys)", systemImage: "key.fill")
+                    L10nLabel("Decryption Keys (prod.keys)", systemImage: "key.fill")
                         .symbolRenderingMode(.hierarchical)
                         .font(.system(size: 13, weight: .bold, design: .rounded))
                         .foregroundColor(NXTheme.textPrimary)
@@ -34,7 +34,7 @@ public struct SystemKeysCard: View {
                                 .lineLimit(1)
                                 .truncationMode(.middle)
                         } else {
-                            Text("No prod.keys located. Auto-detected from Ryujinx or choose manually.")
+                            L10nText("No prod.keys located. Auto-detected from Ryujinx or choose manually.")
                                 .font(.system(size: 12))
                                 .foregroundColor(NXTheme.textSecondary)
                         }
@@ -49,12 +49,12 @@ public struct SystemKeysCard: View {
                             .stroke(NXTheme.specularRim, lineWidth: 0.8)
                     )
                     
-                    Button("Choose File...") {
+                    Button(L10n.string("Choose File...")) {
                         viewModel.selectProdKeysFile()
                     }
                     .buttonStyle(NXSecondaryButtonStyle())
                     
-                    Button("Find in Ryujinx...") {
+                    Button(L10n.string("Find in Ryujinx...")) {
                         viewModel.selectRyujinxFolder()
                     }
                     .buttonStyle(NXSecondaryButtonStyle())

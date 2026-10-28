@@ -11,7 +11,7 @@ public struct SystemDirectoriesCard: View {
         GlassCard {
             VStack(alignment: .leading, spacing: 14) {
                 HStack {
-                    Label("Directories & Storage Preferences", systemImage: "folder.fill.badge.gearshape")
+                    L10nLabel("Directories & Storage Preferences", systemImage: "folder.fill.badge.gearshape")
                         .symbolRenderingMode(.hierarchical)
                         .font(.system(size: 13, weight: .bold, design: .rounded))
                         .foregroundColor(NXTheme.textPrimary)
@@ -19,14 +19,14 @@ public struct SystemDirectoriesCard: View {
                     
                     Spacer()
                     
-                    Text("Auto-saved")
+                    L10nText("Auto-saved")
                         .font(.system(size: 11, weight: .semibold))
                         .foregroundColor(NXTheme.secondary)
                 }
                 
                 // Game ROMs Directory
                 VStack(alignment: .leading, spacing: 6) {
-                    Text("Game ROMs Folder (NSP / XCI / NSZ)")
+                    L10nText("Game ROMs Folder (NSP / XCI / NSZ)")
                         .font(.system(size: 12, weight: .semibold))
                         .foregroundColor(NXTheme.textPrimary)
                     
@@ -39,7 +39,7 @@ public struct SystemDirectoriesCard: View {
                                     .lineLimit(1)
                                     .truncationMode(.middle)
                             } else {
-                                Text("No folder selected yet. Choose one to remember across launches.")
+                                L10nText("No folder selected yet. Choose one to remember across launches.")
                                     .font(.system(size: 12))
                                     .foregroundColor(NXTheme.textSecondary)
                             }
@@ -54,13 +54,13 @@ public struct SystemDirectoriesCard: View {
                                 .stroke(NXTheme.specularRim, lineWidth: 0.8)
                         )
                         
-                        Button("Choose Folder...") {
+                        Button(L10n.string("Choose Folder...")) {
                             viewModel.selectGameFolder()
                         }
                         .buttonStyle(NXSecondaryButtonStyle())
                         
                         if viewModel.selectedGameFolder != nil {
-                            Button("Clear") {
+                            Button(L10n.string("Clear")) {
                                 viewModel.selectedGameFolder = nil
                             }
                             .buttonStyle(NXSecondaryButtonStyle())
@@ -72,7 +72,7 @@ public struct SystemDirectoriesCard: View {
                 
                 // Ported Games Library Directory
                 VStack(alignment: .leading, spacing: 6) {
-                    Text("Ported Games Library Folder (Mac Apps & IPAs)")
+                    L10nText("Ported Games Library Folder (Mac Apps & IPAs)")
                         .font(.system(size: 12, weight: .semibold))
                         .foregroundColor(NXTheme.textPrimary)
                     
@@ -85,7 +85,7 @@ public struct SystemDirectoriesCard: View {
                                     .lineLimit(1)
                                     .truncationMode(.middle)
                             } else {
-                                Text("Default: ~/Games")
+                                L10nText("Default: ~/Games")
                                     .font(.system(size: 12))
                                     .foregroundColor(NXTheme.textSecondary)
                             }
@@ -100,12 +100,12 @@ public struct SystemDirectoriesCard: View {
                                 .stroke(NXTheme.specularRim, lineWidth: 0.8)
                         )
                         
-                        Button("Change...") {
+                        Button(L10n.string("Change...")) {
                             viewModel.selectLibraryFolder()
                         }
                         .buttonStyle(NXSecondaryButtonStyle())
                         
-                        Button("Reset Default") {
+                        Button(L10n.string("Reset Default")) {
                             let defaultDir = URL(fileURLWithPath: viewModel.defaultInstallPath).appendingPathComponent("Games")
                             viewModel.libraryFolder = defaultDir
                             viewModel.refreshLibrary()

@@ -14,7 +14,7 @@ public struct LibraryToolbarView: View {
             HStack(spacing: 8) {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(NXTheme.textSecondary)
-                TextField("Search ported games...", text: $viewModel.librarySearchText)
+                TextField(L10n.string("Search ported games..."), text: $viewModel.librarySearchText)
                     .textFieldStyle(.plain)
                     .foregroundColor(NXTheme.textPrimary)
                 if !viewModel.librarySearchText.isEmpty {
@@ -81,12 +81,12 @@ public struct LibraryToolbarView: View {
             HStack(spacing: 6) {
                 Image(systemName: "folder")
                     .foregroundColor(NXTheme.secondary)
-                Text(viewModel.libraryFolder?.lastPathComponent ?? "Default Games")
+                Text(viewModel.libraryFolder?.lastPathComponent ?? L10n.string("Default Games"))
                     .font(.system(size: 11, design: .monospaced))
                     .foregroundColor(NXTheme.textSecondary)
                     .lineLimit(1)
                 
-                Button("Change...") {
+                Button(L10n.string("Change...")) {
                     SoundEffectService.shared.play(.click)
                     viewModel.selectLibraryFolder()
                 }
@@ -105,7 +105,7 @@ public struct LibraryToolbarView: View {
                     } else {
                         Image(systemName: "arrow.clockwise")
                     }
-                    Text("Refresh")
+                    L10nText("Refresh")
                 }
             }
             .buttonStyle(NXSecondaryButtonStyle())
