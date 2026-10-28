@@ -17,7 +17,7 @@ public struct BuildOptionsSection: View {
             GlassCard {
                 VStack(alignment: .leading, spacing: 14) {
                     HStack {
-                        Label("2. Target Platform & Output", systemImage: "macbook.and.iphone")
+                        L10nLabel("2. Target Platform & Output", systemImage: "macbook.and.iphone")
                             .symbolRenderingMode(.hierarchical)
                             .font(.system(size: 14, weight: .bold, design: .rounded))
                             .foregroundColor(NXTheme.textPrimary)
@@ -35,7 +35,7 @@ public struct BuildOptionsSection: View {
                     
                     // Output Folder Option
                     VStack(alignment: .leading, spacing: 8) {
-                        Toggle("Custom output folder (defaults to game directory)", isOn: $viewModel.useCustomOutputFolder)
+                        Toggle(L10n.string("Custom output folder (defaults to game directory)"), isOn: $viewModel.useCustomOutputFolder)
                             .font(.system(size: 12, weight: .medium))
                             .foregroundColor(NXTheme.textPrimary)
                         
@@ -59,10 +59,10 @@ public struct BuildOptionsSection: View {
                 VStack(alignment: .leading, spacing: 14) {
                     HStack(spacing: 20) {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("Application Name (Optional):")
+                            L10nText("Application Name (Optional):")
                                 .font(.system(size: 12, weight: .medium))
                                 .foregroundColor(NXTheme.textSecondary)
-                            TextField("Custom name displayed in macOS / iOS", text: $viewModel.appName)
+                            TextField(L10n.string("Custom name displayed in macOS / iOS"), text: $viewModel.appName)
                                 .textFieldStyle(.plain)
                                 .padding(.horizontal, 10)
                                 .padding(.vertical, 6)
@@ -75,10 +75,10 @@ public struct BuildOptionsSection: View {
                         }
                         
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("Bundle Identifier (Optional):")
+                            L10nText("Bundle Identifier (Optional):")
                                 .font(.system(size: 12, weight: .medium))
                                 .foregroundColor(NXTheme.textSecondary)
-                            TextField("e.g. org.nxnative.game", text: $viewModel.bundleId)
+                            TextField(L10n.string("e.g. org.nxnative.game"), text: $viewModel.bundleId)
                                 .textFieldStyle(.plain)
                                 .padding(.horizontal, 10)
                                 .padding(.vertical, 6)
@@ -93,7 +93,7 @@ public struct BuildOptionsSection: View {
                     
                     HStack(spacing: 20) {
                         VStack(alignment: .leading, spacing: 6) {
-                            Text("Game Language:")
+                            L10nText("Game Language:")
                                 .font(.system(size: 12, weight: .medium))
                                 .foregroundColor(NXTheme.textSecondary)
                             
@@ -152,16 +152,16 @@ public struct BuildOptionsSection: View {
                     Divider().opacity(0.2)
                     
                     VStack(alignment: .leading, spacing: 8) {
-                        Toggle("Display real-time FPS counter and overlay (--show-fps)", isOn: $viewModel.showFps)
-                        Toggle("Keep intermediate extracted files for fast rebuilds (--keep-extracted)", isOn: $viewModel.keepExtracted)
-                        Toggle("Survey inspection only (Survey Only)", isOn: $viewModel.surveyOnly)
+                        Toggle(L10n.string("Display real-time FPS counter and overlay (--show-fps)"), isOn: $viewModel.showFps)
+                        Toggle(L10n.string("Keep intermediate extracted files for fast rebuilds (--keep-extracted)"), isOn: $viewModel.keepExtracted)
+                        Toggle(L10n.string("Survey inspection only (Survey Only)"), isOn: $viewModel.surveyOnly)
                     }
                     .font(.system(size: 12))
                     .foregroundColor(NXTheme.textSecondary)
                 }
                 .padding(.top, 8)
             } label: {
-                Label("Advanced Options & Build Flags", systemImage: "slider.horizontal.3")
+                L10nLabel("Advanced Options & Build Flags", systemImage: "slider.horizontal.3")
                     .font(.system(size: 13, weight: .semibold, design: .rounded))
                     .foregroundColor(NXTheme.textSecondary)
             }
@@ -194,7 +194,7 @@ public struct BuildOptionsSection: View {
                 }) {
                     HStack(spacing: 6) {
                         Image(systemName: "arrow.left.circle.fill")
-                        Text("Back to Game Selection")
+                        L10nText("Back to Game Selection")
                     }
                     .font(.system(size: 13, weight: .semibold))
                     .padding(.horizontal, 14)
@@ -218,7 +218,7 @@ public struct BuildOptionsSection: View {
                 }) {
                     HStack(spacing: 8) {
                         Image(systemName: "play.fill")
-                        Text("Port Game")
+                        L10nText("Port Game")
                     }
                     .font(.system(size: 13, weight: .bold, design: .rounded))
                     .padding(.horizontal, 22)
