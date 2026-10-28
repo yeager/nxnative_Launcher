@@ -37,7 +37,7 @@ public struct BuildExecutionSection: View {
                             .foregroundColor(NXTheme.textPrimary)
                     }
                     if !viewModel.currentStepName.isEmpty {
-                        Text("↳ \(viewModel.currentStepName)")
+                        Text(verbatim: L10n.format("↳ %@", viewModel.currentStepName))
                             .font(.system(size: 12, design: .monospaced))
                             .foregroundColor(NXTheme.secondary)
                             .padding(.leading, 24)
@@ -49,12 +49,12 @@ public struct BuildExecutionSection: View {
                 if let eta = viewModel.etaSeconds, eta > 0 {
                     let minutes = Int(eta) / 60
                     let seconds = Int(eta) % 60
-                    Text(String(format: "ETA: ~%02d:%02d", minutes, seconds))
+                    Text(verbatim: L10n.format("ETA: ~%02lld:%02lld", Int64(minutes), Int64(seconds)))
                         .font(.system(size: 12, weight: .semibold, design: .monospaced))
                         .foregroundColor(NXTheme.textSecondary)
                 }
                 
-                Text("\(Int(viewModel.progressFraction * 100))%")
+                Text(verbatim: L10n.format("%lld%%", Int64(viewModel.progressFraction * 100)))
                     .font(.system(size: 18, weight: .bold, design: .monospaced))
                     .foregroundColor(NXTheme.secondary)
             }

@@ -195,7 +195,7 @@ public struct BuildPrerequisiteBanners: View {
                 .foregroundColor(NXTheme.tertiary)
             
             VStack(alignment: .leading, spacing: 2) {
-                Text("Missing Build Dependencies (\(viewModel.prerequisites.missingList.count) Left)")
+                Text(verbatim: L10n.format("Missing Build Dependencies (%lld Left)", Int64(viewModel.prerequisites.missingList.count)))
                     .font(.system(size: 13, weight: .bold, design: .rounded))
                     .foregroundColor(NXTheme.textPrimary)
                 L10nText("Install all missing dependencies sequentially one by one until completed.")
