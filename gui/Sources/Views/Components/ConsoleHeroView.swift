@@ -149,7 +149,7 @@ public struct ConsoleHeroView: View {
                                 if deviceService.activeDeployment.isRunning {
                                     ProgressView()
                                         .controlSize(.small)
-                                    Text("\(deviceService.activeDeployment.phase.rawValue) (\(Int(deviceService.activeDeployment.progressFraction * 100))%)")
+                                    Text(verbatim: L10n.format("%@ (%lld%%)", L10n.string(deviceService.activeDeployment.phase.rawValue), Int64(deviceService.activeDeployment.progressFraction * 100)))
                                         .font(.system(size: 13, weight: .bold, design: .rounded))
                                 } else {
                                     Image(systemName: "arrow.up.forward.app")
@@ -196,7 +196,7 @@ public struct ConsoleHeroView: View {
                             )
                         }
                         .buttonStyle(.plain)
-                        .help("Send .ipa directly to iPhone/iPad via AirDrop")
+                        .help(L10n.string("Send .ipa directly to iPhone/iPad via AirDrop"))
 
                         // Reveal in Finder Button for iOS
                         Button(action: {

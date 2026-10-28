@@ -14,7 +14,7 @@ extension GameSettingsIosDeploymentView {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
                 ProgressView().controlSize(.small)
-                Text(deployment.phase.rawValue)
+                Text(verbatim: L10n.string(deployment.phase.rawValue))
                     .font(.system(size: 12, weight: .bold, design: .rounded))
                     .foregroundColor(NXTheme.textPrimary)
 
@@ -41,7 +41,7 @@ extension GameSettingsIosDeploymentView {
                         .font(.system(size: 11, weight: .medium))
                         .foregroundColor(NXTheme.textPrimary)
                     Spacer()
-                    Text("\(Int(deployment.progressFraction * 100))%")
+                    Text(verbatim: L10n.format("%lld%%", Int64(deployment.progressFraction * 100)))
                         .font(.system(size: 11, weight: .bold, design: .rounded))
                         .foregroundColor(NXTheme.primary)
                 }
