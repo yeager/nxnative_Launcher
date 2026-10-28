@@ -60,7 +60,7 @@ public struct ControllerMappingCalloutOverlay: View {
                         HStack(spacing: 6) {
                             Image(systemName: "arrow.left.arrow.right")
                                 .font(.system(size: 11, weight: .bold))
-                            Text("Swap A↔B & X↔Y (Xbox Layout)")
+                            L10nText("Swap A↔B & X↔Y (Xbox Layout)")
                                 .font(.system(size: 11, weight: .bold, design: .rounded))
                         }
                         .padding(.horizontal, 10)

@@ -16,7 +16,7 @@ public struct AnalogDeadzoneTestView: View {
     public var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Label("Analog Stick Calibration & Drift Test", systemImage: "scope")
+                L10nLabel("Analog Stick Calibration & Drift Test", systemImage: "scope")
                     .font(.system(size: 13, weight: .bold, design: .rounded))
                     .foregroundColor(NXTheme.textPrimary)
 
@@ -41,7 +41,7 @@ public struct AnalogDeadzoneTestView: View {
                 stickRadarView(label: "Right Stick (RS)", x: rightX, y: rightY)
 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Live Drift Monitor:")
+                    L10nText("Live Drift Monitor:")
                         .font(.system(size: 11, weight: .bold, design: .rounded))
                         .foregroundColor(NXTheme.textSecondary)
 
@@ -50,7 +50,7 @@ public struct AnalogDeadzoneTestView: View {
                         .font(.system(size: 11, weight: .semibold))
                         .foregroundColor(isDrifting ? Color(red: 0.91, green: 0.07, blue: 0.14) : Color(red: 0.13, green: 0.77, blue: 0.37))
 
-                    Text("Adjust the deadzone slider above if your character moves on its own without touching the stick.")
+                    L10nText("Adjust the deadzone slider above if your character moves on its own without touching the stick.")
                         .font(.system(size: 10))
                         .foregroundColor(NXTheme.textMuted)
                 }

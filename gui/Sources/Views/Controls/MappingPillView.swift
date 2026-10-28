@@ -59,7 +59,7 @@ public struct MappingPillView: View {
                     if isListening {
                         ProgressView()
                             .controlSize(.mini)
-                        Text("Press a button...")
+                        L10nText("Press a button...")
                             .font(.system(size: 11, weight: .bold, design: .rounded))
                             .foregroundColor(.white)
                     } else {
@@ -76,7 +76,7 @@ public struct MappingPillView: View {
                             }
                         }
                         Divider()
-                        Button("Reset to Default", action: onReset)
+                        Button(L10n.string("Reset to Default"), action: onReset)
                     } label: {
                         Image(systemName: "chevron.down")
                             .font(.system(size: 9, weight: .bold))

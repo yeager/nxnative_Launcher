@@ -59,7 +59,7 @@ extension ControllerPromptBar {
                 bumperCap(text: controllerService.activeBrand.leftShoulderName)
                 bumperCap(text: controllerService.activeBrand.rightShoulderName)
             }
-            Text("Tabs")
+            L10nText("Tabs")
                 .font(.system(size: 11, weight: .medium, design: .rounded))
                 .foregroundColor(.white)
         }
@@ -117,7 +117,7 @@ extension ControllerPromptBar {
                     .background(Circle().fill(brandXColor))
             }
             
-            Text("Play")
+            L10nText("Play")
                 .font(.system(size: 11, weight: .semibold, design: .rounded))
                 .foregroundColor(.white)
         }

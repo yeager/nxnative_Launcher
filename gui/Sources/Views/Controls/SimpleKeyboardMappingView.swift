@@ -14,17 +14,17 @@ public struct SimpleKeyboardMappingView: View {
         VStack(alignment: .leading, spacing: 18) {
             // MARK: - Presets Bar
             HStack(spacing: 10) {
-                Text("Keyboard Presets:")
+                L10nText("Keyboard Presets:")
                     .font(.system(size: 12, weight: .bold, design: .rounded))
                     .foregroundColor(NXTheme.textPrimary)
 
-                Button("Default (WASD + JKUI)") {
+                Button(L10n.string("Default (WASD + JKUI)")) {
                     applyDefaultPreset()
                 }
                 .buttonStyle(NXSecondaryButtonStyle())
                 .controlSize(.small)
 
-                Button("Arrow Keys Layout") {
+                Button(L10n.string("Arrow Keys Layout")) {
                     applyArrowsPreset()
                 }
                 .buttonStyle(NXSecondaryButtonStyle())
