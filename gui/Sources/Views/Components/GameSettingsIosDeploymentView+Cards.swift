@@ -54,7 +54,7 @@ extension GameSettingsIosDeploymentView {
             }
 
             HStack {
-                Button("Cancel Deployment") {
+                Button(L10n.string("Cancel Deployment")) {
                     SoundEffectService.shared.play(.click)
                     deviceService.cancelDeployment()
                 }
@@ -63,7 +63,7 @@ extension GameSettingsIosDeploymentView {
 
                 Spacer()
 
-                Button(showDeployLogs ? "Hide Logs" : "View Live Logs") {
+                Button(showDeployLogs ? L10n.string("Hide Logs") : L10n.string("View Live Logs")) {
                     withAnimation(.easeInOut(duration: 0.2)) { showDeployLogs.toggle() }
                 }
                 .buttonStyle(.plain)
@@ -115,7 +115,7 @@ extension GameSettingsIosDeploymentView {
 
             Spacer()
 
-            Button("OK") {
+            Button(L10n.string("OK")) {
                 SoundEffectService.shared.play(.click)
                 deviceService.dismissDeploymentStatus()
             }
@@ -141,7 +141,7 @@ extension GameSettingsIosDeploymentView {
 
                 Spacer()
 
-                Button("Close") {
+                Button(L10n.string("Close")) {
                     SoundEffectService.shared.play(.click)
                     deviceService.dismissDeploymentStatus()
                 }
@@ -162,7 +162,7 @@ extension GameSettingsIosDeploymentView {
                     }) {
                         HStack(spacing: 4) {
                             Image(systemName: "airdrop")
-                            Text("Send via AirDrop Now")
+                            L10nText("Send via AirDrop Now")
                         }
                     }
                     .buttonStyle(NXPrimaryButtonStyle())
@@ -174,7 +174,7 @@ extension GameSettingsIosDeploymentView {
                     }) {
                         HStack(spacing: 4) {
                             Image(systemName: "folder")
-                            Text("Open .ipa Folder")
+                            L10nText("Open .ipa Folder")
                         }
                     }
                     .buttonStyle(NXSecondaryButtonStyle())

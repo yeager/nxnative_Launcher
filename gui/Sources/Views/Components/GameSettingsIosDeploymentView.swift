@@ -35,7 +35,7 @@ public struct GameSettingsIosDeploymentView: View {
 
     private var headerBar: some View {
         HStack {
-            Label("Install Port on iPhone / iPad", systemImage: "iphone.badge.play")
+            L10nLabel("Install Port on iPhone / iPad", systemImage: "iphone.badge.play")
                 .font(.system(size: 13, weight: .bold, design: .rounded))
                 .foregroundColor(NXTheme.textPrimary)
 
@@ -47,7 +47,7 @@ public struct GameSettingsIosDeploymentView: View {
             }) {
                 HStack(spacing: 4) {
                     Image(systemName: "airdrop")
-                    Text("AirDrop")
+                    L10nText("AirDrop")
                 }
             }
             .buttonStyle(NXSecondaryButtonStyle())
@@ -60,7 +60,7 @@ public struct GameSettingsIosDeploymentView: View {
             }) {
                 HStack(spacing: 4) {
                     Image(systemName: "folder")
-                    Text("Show .ipa")
+                    L10nText("Show .ipa")
                 }
             }
             .buttonStyle(NXSecondaryButtonStyle())
@@ -76,13 +76,13 @@ public struct GameSettingsIosDeploymentView: View {
                     if deviceService.isDetecting {
                         ProgressView().controlSize(.small)
                     }
-                    Text("No devices found on local network or USB.")
+                    L10nText("No devices found on local network or USB.")
                         .font(.system(size: 11))
                         .foregroundColor(NXTheme.textSecondary)
 
                     Spacer()
 
-                    Button("Search Devices") {
+                    Button(L10n.string("Search Devices")) {
                         SoundEffectService.shared.play(.click)
                         deviceService.refreshDevicesAndTeams()
                     }
@@ -116,7 +116,7 @@ public struct GameSettingsIosDeploymentView: View {
                         }) {
                             HStack(spacing: 3) {
                                 Image(systemName: "airdrop")
-                                Text("AirDrop")
+                                L10nText("AirDrop")
                             }
                         }
                         .buttonStyle(NXSecondaryButtonStyle())
