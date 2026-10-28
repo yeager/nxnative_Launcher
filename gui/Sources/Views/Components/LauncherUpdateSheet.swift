@@ -29,7 +29,7 @@ public struct LauncherUpdateSheet: View {
                         L10nText("NxNative Launcher Software Update")
                             .font(.system(size: 16, weight: .bold, design: .rounded))
                             .foregroundColor(.white)
-                        Text("GitHub Repository: github.com/rennan101/nxnative_Launcher")
+                        L10nText("GitHub Repository: github.com/rennan101/nxnative_Launcher")
                             .font(.system(size: 11, design: .monospaced))
                             .foregroundColor(NXTheme.textSecondary)
                     }
@@ -80,7 +80,7 @@ public struct LauncherUpdateSheet: View {
                                 L10nText("Update Installed Successfully!")
                                     .font(.system(size: 14, weight: .bold, design: .rounded))
                                     .foregroundColor(.white)
-                                Text(viewModel.updateSuccessBanner ?? "The new NxNative_Launcher.app bundle has been compiled and installed.")
+                                Text(viewModel.updateSuccessBanner ?? L10n.string("The new NxNative_Launcher.app bundle has been compiled and installed."))
                                     .font(.system(size: 11))
                                     .foregroundColor(NXTheme.textSecondary)
                             }
@@ -126,7 +126,7 @@ public struct LauncherUpdateSheet: View {
                                     .font(.system(size: 13, weight: .bold, design: .rounded))
                                     .foregroundColor(NXTheme.secondary)
                                 Spacer()
-                                Text("[\(info.localCommit)] → [\(info.remoteCommit)]")
+                                Text(verbatim: L10n.format("[%@] → [%@]", info.localCommit, info.remoteCommit))
                                     .font(.system(size: 11, weight: .bold, design: .monospaced))
                                     .foregroundColor(.white)
                             }
@@ -156,7 +156,7 @@ public struct LauncherUpdateSheet: View {
                                 L10nText("NxNative Launcher is Up to Date!")
                                     .font(.system(size: 14, weight: .bold, design: .rounded))
                                     .foregroundColor(.white)
-                                Text("You are running the latest version from GitHub (Commit [\(info.localCommit)]).")
+                                Text(verbatim: L10n.format("You are running the latest version from GitHub (Commit [%@]).", info.localCommit))
                                     .font(.system(size: 11.5))
                                     .foregroundColor(NXTheme.textSecondary)
                             }
@@ -171,7 +171,7 @@ public struct LauncherUpdateSheet: View {
                         Image(systemName: "wifi.exclamationmark")
                             .font(.system(size: 20))
                             .foregroundColor(.orange)
-                        Text("Could not reach GitHub or locate local git repository (\(viewModel.nxnativePath)).")
+                        Text(verbatim: L10n.format("Could not reach GitHub or locate local git repository (%@).", viewModel.nxnativePath))
                             .font(.system(size: 11.5))
                             .foregroundColor(NXTheme.textSecondary)
                         Spacer()
