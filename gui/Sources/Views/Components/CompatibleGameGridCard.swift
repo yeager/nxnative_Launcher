@@ -91,7 +91,7 @@ public struct CompatibleGameGridCard: View {
                     
                     Spacer()
                     
-                    Text("v\(item.versionTested)")
+                    Text(verbatim: L10n.format("v%@", item.versionTested))
                         .font(.system(size: 9, design: .monospaced))
                         .foregroundColor(NXTheme.textMuted)
                 }

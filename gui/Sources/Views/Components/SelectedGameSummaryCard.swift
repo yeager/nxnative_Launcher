@@ -46,7 +46,7 @@ public struct SelectedGameSummaryCard: View {
                                 .foregroundColor(NXTheme.secondary)
                             
                             if sel.updateCount > 0 {
-                                Text("+\(sel.updateCount) Update\(sel.updateCount > 1 ? "s" : "")")
+                                Text(verbatim: L10n.format("+%lld updates", Int64(sel.updateCount)))
                                     .font(.system(size: 10, weight: .bold))
                                     .foregroundColor(.white)
                                     .padding(.horizontal, 6)
@@ -55,7 +55,7 @@ public struct SelectedGameSummaryCard: View {
                                     .clipShape(Capsule())
                             }
                             if sel.dlcCount > 0 {
-                                Text("+\(sel.dlcCount) DLC\(sel.dlcCount > 1 ? "s" : "")")
+                                Text(verbatim: L10n.format("+%lld DLC", Int64(sel.dlcCount)))
                                     .font(.system(size: 10, weight: .bold))
                                     .foregroundColor(.white)
                                     .padding(.horizontal, 6)

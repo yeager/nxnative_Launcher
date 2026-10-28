@@ -62,7 +62,7 @@ public struct SelectableGameCard: View {
                         
                         // Badge: Updates (White text for high contrast)
                         if game.updateCount > 0 {
-                            Text("+\(game.updateCount) Update\(game.updateCount > 1 ? "s" : "")")
+                            Text(verbatim: L10n.format("+%lld updates", Int64(game.updateCount)))
                                 .font(.system(size: 10, weight: .bold))
                                 .padding(.horizontal, 7)
                                 .padding(.vertical, 2)
@@ -73,7 +73,7 @@ public struct SelectableGameCard: View {
                         
                         // Badge: DLCs (White text for high contrast)
                         if game.dlcCount > 0 {
-                            Text("+\(game.dlcCount) DLC\(game.dlcCount > 1 ? "s" : "")")
+                            Text(verbatim: L10n.format("+%lld DLC", Int64(game.dlcCount)))
                                 .font(.system(size: 10, weight: .bold))
                                 .padding(.horizontal, 7)
                                 .padding(.vertical, 2)
@@ -82,7 +82,7 @@ public struct SelectableGameCard: View {
                                 .clipShape(Capsule())
                         }
                         
-                        Text("(\(game.files.count) file\(game.files.count > 1 ? "s" : ""))")
+                        Text(verbatim: L10n.format("(%lld files)", Int64(game.files.count)))
                             .font(.system(size: 10))
                             .foregroundColor(NXTheme.textMuted)
                     }

@@ -32,7 +32,7 @@ public struct CompatibleGameRow: View {
                         .foregroundColor(isRowFocused ? .white : NXTheme.textPrimary)
                         .lineLimit(1)
                     
-                    Text("Ver: \(game.versionTested)")
+                    Text(verbatim: L10n.format("Ver: %@", game.versionTested))
                         .font(.system(size: 10, design: .monospaced))
                         .foregroundColor(NXTheme.textSecondary)
                 }
@@ -84,7 +84,7 @@ public struct CompatibleGameRow: View {
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(isRowFocused && focusedButton == .notes ? Color.white : Color.clear, lineWidth: 1.5)
                     )
-                    .help("View upstream compatibility notes on GitHub")
+                    .help(L10n.string("View upstream compatibility notes on GitHub"))
                 }
             }
             .frame(minHeight: 48)
