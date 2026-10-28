@@ -8,6 +8,10 @@ enum L10n {
     static func string(_ key: String, comment: String = "") -> String {
         NSLocalizedString(key, tableName: nil, bundle: .module, value: key, comment: comment)
     }
+
+    static func format(_ key: String, _ arguments: CVarArg...) -> String {
+        String(format: string(key), locale: Locale.current, arguments: arguments)
+    }
 }
 
 /// A localized equivalent of `Text("…")` for Swift Package resources.
