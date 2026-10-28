@@ -123,7 +123,7 @@ public struct ConsoleGameCarouselView: View {
                     HStack(spacing: 5) {
                         ProgressView()
                             .controlSize(.mini)
-                        Text("Launching")
+                        L10nText("Launching")
                             .font(.system(size: 10, weight: .bold, design: .rounded))
                             .foregroundColor(.white)
                     }
@@ -143,7 +143,7 @@ public struct ConsoleGameCarouselView: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        Text(game.platform == .macApp ? "Mac App" : "iOS IPA")
+                        Text(game.platform == .macApp ? L10n.string("Mac App") : L10n.string("iOS IPA"))
                             .font(.system(size: 9, weight: .bold, design: .rounded))
                             .padding(.horizontal, 7)
                             .padding(.vertical, 3)

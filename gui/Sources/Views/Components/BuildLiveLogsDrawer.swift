@@ -14,7 +14,7 @@ public struct BuildLiveLogsDrawer: View {
                     .font(.system(size: 11, weight: .bold))
                     .foregroundColor(NXTheme.textSecondary)
                 Spacer()
-                Text("\(viewModel.logs.count) lines")
+                Text(verbatim: L10n.format("%lld lines", Int64(viewModel.logs.count)))
                     .font(.system(size: 10, design: .monospaced))
                     .foregroundColor(NXTheme.textMuted)
             }

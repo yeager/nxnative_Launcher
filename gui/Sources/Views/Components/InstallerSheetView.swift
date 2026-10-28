@@ -25,7 +25,7 @@ public struct InstallerSheetView: View {
                             .font(.system(size: 16, weight: .bold, design: .rounded))
                             .foregroundColor(NXTheme.textPrimary)
                         if let item = viewModel.installerCurrentItem {
-                            Text("Installing: \(item)...")
+                            Text(verbatim: L10n.format("Installing: %@...", item))
                                 .font(.system(size: 12))
                                 .foregroundColor(NXTheme.textSecondary)
                         } else if !viewModel.isInstallingDependency {

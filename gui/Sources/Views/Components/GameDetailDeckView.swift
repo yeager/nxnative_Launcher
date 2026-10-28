@@ -190,7 +190,7 @@ public struct GameDetailDeckView: View {
                                     .font(.system(size: 11, weight: .bold, design: .rounded))
                                     .foregroundColor(NXTheme.textSecondary)
                                 Spacer()
-                                Text("\(profile.dlcItems.count) found")
+                                Text(verbatim: L10n.format("%lld found", Int64(profile.dlcItems.count)))
                                     .font(.system(size: 10, weight: .semibold, design: .monospaced))
                                     .foregroundColor(profile.dlcItems.isEmpty ? NXTheme.textMuted : NXTheme.secondary)
                             }
