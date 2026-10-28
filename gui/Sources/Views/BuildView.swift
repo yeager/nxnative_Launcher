@@ -149,7 +149,7 @@ public struct BuildView: View {
                             .foregroundColor(NXTheme.secondary)
                     }
                     
-                    Text("This community GUI is a helper tool to make porting Switch games accessible without terminal commands. Notice: As soon as the upstream developer releases an official launcher, this project will be deprecated in favor of the official release.")
+                    L10nText("This community GUI is a helper tool to make porting Switch games accessible without terminal commands. Notice: As soon as the upstream developer releases an official launcher, this project will be deprecated in favor of the official release.")
                         .font(.system(size: 11))
                         .foregroundColor(NXTheme.textSecondary)
                         .lineSpacing(2)

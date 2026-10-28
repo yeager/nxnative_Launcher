@@ -58,7 +58,7 @@ public struct BuildBanners: View {
                         .foregroundColor(NXTheme.secondary)
                 }
                 
-                Text("This community GUI is a helper tool to make porting Switch games accessible without terminal commands. Notice: As soon as the upstream developer releases an official launcher, this project will be deprecated in favor of the official release.")
+                L10nText("This community GUI is a helper tool to make porting Switch games accessible without terminal commands. Notice: As soon as the upstream developer releases an official launcher, this project will be deprecated in favor of the official release.")
                     .font(.system(size: 11))
                     .foregroundColor(NXTheme.textSecondary)
                     .lineSpacing(2)
@@ -104,7 +104,7 @@ public struct BuildBanners: View {
                     L10nText("nxnative Update Available")
                     .font(.system(size: 13, weight: .bold, design: .rounded))
                     .foregroundColor(NXTheme.textPrimary)
-                Text("\(update.commitMessages.count) new commits available on GitHub repository.")
+                Text(verbatim: L10n.format("%lld new commits available on GitHub repository.", Int64(update.commitMessages.count)))
                     .font(.system(size: 11))
                     .foregroundColor(NXTheme.textSecondary)
             }
