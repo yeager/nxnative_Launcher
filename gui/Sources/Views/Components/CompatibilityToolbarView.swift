@@ -12,7 +12,7 @@ public struct CompatibilityToolbarView: View {
         HStack(spacing: 14) {
             VStack(alignment: .leading, spacing: 2) {
                 HStack(spacing: 8) {
-                    Text("Compatible Games")
+                    L10nText("Compatible Games")
                         .font(.system(size: 16, weight: .bold, design: .rounded))
                         .foregroundColor(NXTheme.textPrimary)
                     
@@ -29,7 +29,7 @@ public struct CompatibilityToolbarView: View {
                     Circle()
                         .fill(viewModel.isCompatibilityFromOnline ? Color(red: 0.13, green: 0.77, blue: 0.37) : NXTheme.tertiary)
                         .frame(width: 6, height: 6)
-                    Text(viewModel.isCompatibilityFromOnline ? "Live GitHub Sync" : "Local Repository Cache")
+                    Text(viewModel.isCompatibilityFromOnline ? L10n.string("Live GitHub Sync") : L10n.string("Local Repository Cache"))
                         .font(.system(size: 10, weight: .medium))
                         .foregroundColor(NXTheme.textSecondary)
                     
@@ -47,7 +47,7 @@ public struct CompatibilityToolbarView: View {
             HStack(spacing: 6) {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(NXTheme.textSecondary)
-                TextField("Search title, ID, engine...", text: $viewModel.compatibilitySearchText)
+                TextField(L10n.string("Search title, ID, engine..."), text: $viewModel.compatibilitySearchText)
                     .textFieldStyle(.plain)
                     .foregroundColor(NXTheme.textPrimary)
                 if !viewModel.compatibilitySearchText.isEmpty {
@@ -89,7 +89,7 @@ public struct CompatibilityToolbarView: View {
                     } else {
                         Image(systemName: "arrow.clockwise")
                     }
-                    Text("Refresh")
+                    L10nText("Refresh")
                 }
             }
             .buttonStyle(NXSecondaryButtonStyle())

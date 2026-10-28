@@ -76,7 +76,7 @@ public struct CompatibleGameGridCard: View {
                             onNotes()
                         }) {
                             HStack(spacing: 3) {
-                                Text("Notes")
+                                L10nText("Notes")
                                 Image(systemName: "arrow.up.right")
                             }
                             .font(.system(size: 10, weight: .semibold))

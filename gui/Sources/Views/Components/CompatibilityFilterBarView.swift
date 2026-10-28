@@ -17,7 +17,7 @@ public struct CompatibilityFilterBarView: View {
                     Image(systemName: "memorychip")
                         .font(.system(size: 11, weight: .semibold))
                         .foregroundColor(NXTheme.secondary)
-                    Text("RAM:")
+                    L10nText("RAM:")
                         .font(.system(size: 11, weight: .bold, design: .rounded))
                         .foregroundColor(.white)
                 }
@@ -41,7 +41,7 @@ public struct CompatibilityFilterBarView: View {
                         HStack(spacing: 4) {
                             Image(systemName: "xmark.circle.fill")
                                 .font(.system(size: 10))
-                            Text("Reset")
+                            L10nText("Reset")
                                 .font(.system(size: 10, weight: .semibold))
                         }
                         .foregroundColor(NXTheme.textSecondary)

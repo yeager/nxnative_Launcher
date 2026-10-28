@@ -74,7 +74,7 @@ public struct CompatibleGameRow: View {
                     }) {
                         HStack(spacing: 4) {
                             Image(systemName: "doc.text.fill")
-                            Text("Notes")
+                            L10nText("Notes")
                         }
                         .font(.system(size: 11, weight: .semibold))
                     }
