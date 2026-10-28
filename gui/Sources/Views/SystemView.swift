@@ -37,7 +37,7 @@ public struct SystemView: View {
             L10nText("Apple's official installer dialog has opened on screen. Follow Apple's prompt to complete the installation. Once finished, click 'Re-check' to verify.")
         }
         .confirmationDialog(
-            "Uninstall \(viewModel.dependencyToUninstall?.name ?? "this tool")?",
+            L10n.format("Uninstall %@?", viewModel.dependencyToUninstall?.name ?? L10n.string("this tool")),
             isPresented: $viewModel.showUninstallConfirm,
             titleVisibility: .visible
         ) {
@@ -69,7 +69,7 @@ public struct SystemView: View {
                     }
                 }
                 .buttonStyle(NXAccentButtonStyle())
-                .help("Install all missing dependencies sequentially one by one until completed.")
+                .help(L10n.string("Install all missing dependencies sequentially one by one until completed."))
             } else {
                 Button(action: {
                     SoundEffectService.shared.play(.click)

@@ -59,7 +59,7 @@ public struct CompatibilityFilterBarView: View {
             GeometryReader { geo in
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 3) {
-                        nameLetterButton("All", isSelected: viewModel.compatibilityNameFilter == "All") {
+                        nameLetterButton(L10n.string("All"), isSelected: viewModel.compatibilityNameFilter == "All") {
                             viewModel.compatibilityNameFilter = "All"
                         }
                         
@@ -117,7 +117,7 @@ public struct CompatibilityFilterBarView: View {
         }
         .buttonStyle(.plain)
         .nxNoFocusRing()
-        .help(ramGB == nil ? "Show games for all RAM capacities" : "Show games that run on devices with up to \(ramGB!)GB RAM (\(count) games)")
+        .help(ramGB == nil ? L10n.string("Show games for all RAM capacities") : L10n.format("Show games that run on devices with up to %lldGB RAM (%lld games)", Int64(ramGB!), Int64(count)))
     }
     
     private func nameLetterButton(_ label: String, isSelected: Bool, action: @escaping () -> Void) -> some View {

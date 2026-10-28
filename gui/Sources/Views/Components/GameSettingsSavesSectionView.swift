@@ -50,9 +50,9 @@ public struct GameSettingsSavesSectionView: View {
                 Button(L10n.string("Local Backup")) {
                     SoundEffectService.shared.play(.click)
                     if let backup = saveService.backupMacSave(titleId: titleId) {
-                        backupStatusText = "Saved to: \(backup.lastPathComponent)"
+                        backupStatusText = L10n.format("Saved to: %@", backup.lastPathComponent)
                     } else {
-                        backupStatusText = "No save data found to backup"
+                        backupStatusText = L10n.string("No save data found to backup")
                     }
                 }
                 .buttonStyle(NXSecondaryButtonStyle())
@@ -89,7 +89,7 @@ public struct GameSettingsSavesSectionView: View {
                 }
                 .buttonStyle(NXSecondaryButtonStyle())
                 .controlSize(.mini)
-                .help("Opens game folder inside iCloud Drive > nxnative_launcher with game cover art on the folder")
+                .help(L10n.string("Opens game folder inside iCloud Drive > nxnative_launcher with game cover art on the folder"))
             }
             .padding(10)
             .background(NXTheme.glassSurfaceElevated.opacity(0.7))
@@ -112,7 +112,7 @@ public struct GameSettingsSavesSectionView: View {
             ForEach(deviceService.connectedDevices) { dev in
                 HStack {
                     VStack(alignment: .leading, spacing: 2) {
-                        Text("Sync with \(dev.name) (\(dev.model))")
+                        Text(verbatim: L10n.format("Sync with %@ (%@)", dev.name, dev.model))
                             .font(.system(size: 11, weight: .semibold))
                             .foregroundColor(NXTheme.textPrimary)
                         if let text = syncStatusText {
