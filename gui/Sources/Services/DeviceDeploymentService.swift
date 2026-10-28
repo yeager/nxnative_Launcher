@@ -97,8 +97,8 @@ public final class DeviceDeploymentService: ObservableObject {
 
         activeDeployment.isRunning = false
         activeDeployment.phase = .cancelled
-        activeDeployment.statusMessage = "Deployment cancelled by user."
-        activeDeployment.detailMessage = "The installation process was safely terminated."
+        activeDeployment.statusMessage = L10n.string("Deployment cancelled by user.")
+        activeDeployment.detailMessage = L10n.string("The installation process was safely terminated.")
 
         let cb = completionCallback
         completionCallback = nil
@@ -124,7 +124,7 @@ public final class DeviceDeploymentService: ObservableObject {
     ) {
         // Prevent concurrent deployments
         if activeDeployment.isRunning {
-            completion(false, "Another deployment is already in progress.")
+            completion(false, L10n.string("Another deployment is already in progress."))
             return
         }
 
@@ -134,8 +134,8 @@ public final class DeviceDeploymentService: ObservableObject {
         activeDeployment = DeploymentProgressInfo(
             phase: .extracting,
             progressFraction: 0.05,
-            statusMessage: "Starting installation on \(device.name)...",
-            detailMessage: "Preparing game package for transfer...",
+            statusMessage: L10n.format("Starting installation on %@...", device.name),
+            detailMessage: L10n.string("Preparing game package for transfer..."),
             logLines: ["==> Starting deployment of \(appBundleURL.lastPathComponent) on \(device.name)..."],
             isRunning: true,
             targetDeviceName: device.name,
@@ -157,8 +157,8 @@ public final class DeviceDeploymentService: ObservableObject {
                     DispatchQueue.main.async {
                         self.failDeployment(
                             category: .invalidIPA,
-                            title: "Invalid .ipa Archive",
-                            detail: extractError ?? "Could not extract Payload/*.app from .ipa file."
+                            title: L10n.string("Invalid .ipa Archive"),
+                            detail: extractError ?? L10n.string("Could not extract Payload/*.app from .ipa file.")
                         )
                     }
                     return
@@ -172,8 +172,8 @@ public final class DeviceDeploymentService: ObservableObject {
             DispatchQueue.main.async {
                 self.activeDeployment.phase = .signing
                 self.activeDeployment.progressFraction = 0.35
-                self.activeDeployment.statusMessage = "Verifying app signature..."
-                self.activeDeployment.detailMessage = "Ensuring bundle integrity before transfer..."
+                self.activeDeployment.statusMessage = L10n.string("Verifying app signature...")
+                self.activeDeployment.detailMessage = L10n.string("Ensuring bundle integrity before transfer...")
             }
 
             self.applyCodeSignatureIfNeeded(targetAppURL: targetAppURL)
@@ -184,8 +184,8 @@ public final class DeviceDeploymentService: ObservableObject {
             DispatchQueue.main.async {
                 self.activeDeployment.phase = .transferring
                 self.activeDeployment.progressFraction = 0.45
-                self.activeDeployment.statusMessage = "Transferring to \(device.name)..."
-                self.activeDeployment.detailMessage = "Connecting to device and transferring game files..."
+                self.activeDeployment.statusMessage = L10n.format("Transferring to %@...", device.name)
+                self.activeDeployment.detailMessage = L10n.string("Connecting to device and transferring game files...")
             }
 
             self.executeDeviceCtlInstall(targetAppURL: targetAppURL, device: device)
@@ -225,8 +225,8 @@ public final class DeviceDeploymentService: ObservableObject {
 
         DispatchQueue.main.async {
             self.activeDeployment.logLines.append("==> Extracting \(ipaURL.lastPathComponent) (\(self.formatByteSize(Int64(size))))...")
-            self.activeDeployment.statusMessage = "Extracting .ipa package (\(self.formatByteSize(Int64(size))))..."
-            self.activeDeployment.detailMessage = "Please wait while game assets are unpacked..."
+            self.activeDeployment.statusMessage = L10n.format("Extracting .ipa package (%@)...", self.formatByteSize(Int64(size)))
+            self.activeDeployment.detailMessage = L10n.string("Please wait while game assets are unpacked...")
             self.activeDeployment.progressFraction = 0.15
         }
 
