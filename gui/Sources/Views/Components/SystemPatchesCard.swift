@@ -15,7 +15,7 @@ public struct SystemPatchesCard: View {
                         .symbolRenderingMode(.hierarchical)
                         .font(.system(size: 13, weight: .bold, design: .rounded))
                         .foregroundColor(NXTheme.textPrimary)
-                        .help("Pre-configured patches for 60 FPS unlock, UE memory allocators, dynamic shader fallbacks, and Mac app packaging.")
+                        .help(L10n.string("Pre-configured patches for 60 FPS unlock, UE memory allocators, dynamic shader fallbacks, and Mac app packaging."))
                     
                     Spacer()
                     
@@ -44,7 +44,7 @@ public struct SystemPatchesCard: View {
                             Spacer()
                             StatusBadge(
                                 isPositive: patch.isApplied,
-                                text: patch.isApplied ? "Applied / Upstream" : "Not Applied"
+                                text: patch.isApplied ? L10n.string("Applied / Upstream") : L10n.string("Not Applied")
                             )
                         }
                         .padding(8)

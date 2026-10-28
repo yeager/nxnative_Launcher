@@ -15,13 +15,13 @@ public struct SystemRepoCard: View {
                         .symbolRenderingMode(.hierarchical)
                         .font(.system(size: 13, weight: .bold, design: .rounded))
                         .foregroundColor(NXTheme.textPrimary)
-                        .help("The upstream conversion scripts and headers from seedds/nxnative required to compile native ports.")
+                        .help(L10n.string("The upstream conversion scripts and headers from seedds/nxnative required to compile native ports."))
                     
                     Spacer()
                     
                     StatusBadge(
                         isPositive: viewModel.isNxnativeValid,
-                        text: viewModel.isNxnativeValid ? "Installed and Ready" : "Repository Missing"
+                        text: viewModel.isNxnativeValid ? L10n.string("Installed and Ready") : L10n.string("Repository Missing")
                     )
                 }
                 
@@ -76,11 +76,11 @@ public struct SystemRepoCard: View {
                 // GitHub Upstream Information & Live Update Check
                 HStack {
                     VStack(alignment: .leading, spacing: 2) {
-                        Text("GitHub Repository: github.com/rennan101/nxnative_Launcher")
+                            L10nText("GitHub Repository: github.com/rennan101/nxnative_Launcher")
                             .font(.system(size: 11, weight: .medium))
                             .foregroundColor(NXTheme.textSecondary)
                         if let update = viewModel.updateInfo {
-                            Text("Local: [\(update.localCommit)] · Remote: [\(update.remoteCommit)]")
+                            Text(verbatim: L10n.format("Local: [%@] · Remote: [%@]", update.localCommit, update.remoteCommit))
                                 .font(.system(size: 11, design: .monospaced))
                                 .foregroundColor(NXTheme.textMuted)
                         }

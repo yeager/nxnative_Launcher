@@ -16,13 +16,13 @@ public struct SystemToolsCard: View {
                         .symbolRenderingMode(.hierarchical)
                         .font(.system(size: 13, weight: .bold, design: .rounded))
                         .foregroundColor(NXTheme.textPrimary)
-                        .help("Toolchains, compilers, and dependencies required to build and bundle native ports.")
+                        .help(L10n.string("Toolchains, compilers, and dependencies required to build and bundle native ports."))
                     
                     Spacer()
                     
                     StatusBadge(
                         isPositive: viewModel.prerequisites.allSatisfied,
-                        text: viewModel.prerequisites.allSatisfied ? "All Dependencies Ready" : "\(viewModel.prerequisites.missingList.count) Missing"
+                        text: viewModel.prerequisites.allSatisfied ? L10n.string("All Dependencies Ready") : L10n.format("%lld Missing", Int64(viewModel.prerequisites.missingList.count))
                     )
                     
                     if !viewModel.prerequisites.allSatisfied {
@@ -54,7 +54,7 @@ public struct SystemToolsCard: View {
                             .foregroundColor(NXTheme.tertiary)
                         
                         VStack(alignment: .leading, spacing: 2) {
-                            Text("Missing Dependencies Detected (\(viewModel.prerequisites.missingList.count) Items)")
+                            Text(verbatim: L10n.format("Missing Dependencies Detected (%lld Items)", Int64(viewModel.prerequisites.missingList.count)))
                                 .font(.system(size: 13, weight: .bold, design: .rounded))
                                 .foregroundColor(NXTheme.textPrimary)
                             L10nText("Homebrew and build dependencies will be installed sequentially one by one until finished.")
@@ -116,7 +116,7 @@ public struct SystemToolsCard: View {
                                 L10nText("Installing Dependencies One by One...")
                             } else {
                                 Image(systemName: "arrow.down.circle.fill")
-                                Text("Install All Dependencies One by One Until Finished (\(viewModel.prerequisites.missingList.count) Left)")
+                                Text(verbatim: L10n.format("Install All Dependencies One by One Until Finished (%lld Left)", Int64(viewModel.prerequisites.missingList.count)))
                             }
                         }
                         .font(.system(size: 12, weight: .bold, design: .rounded))
