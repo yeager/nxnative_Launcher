@@ -50,7 +50,7 @@ public struct DropZoneView: View {
                         HStack(spacing: 8) {
                             Image(systemName: "folder.fill")
                                 .foregroundColor(NXTheme.secondary)
-                            Text("Active Folder: \(folder.path)")
+                            Text(verbatim: L10n.format("Active Folder: %@", folder.path))
                                 .font(.system(size: 11, weight: .medium, design: .monospaced))
                                 .foregroundColor(NXTheme.textPrimary)
                                 .lineLimit(1)

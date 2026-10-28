@@ -9,7 +9,7 @@ public struct BuildStageStepperView: View {
     
     public var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Porting Stages (\(viewModel.stageIndex)/\(max(viewModel.totalStages, viewModel.buildStages.count))):")
+            Text(verbatim: L10n.format("Porting Stages (%lld/%lld):", Int64(viewModel.stageIndex), Int64(max(viewModel.totalStages, viewModel.buildStages.count))))
                 .font(.system(size: 11, weight: .bold))
                 .foregroundColor(NXTheme.textSecondary)
             
@@ -57,7 +57,7 @@ public struct BuildStageStepperView: View {
                     .padding(.horizontal, 3)
             }
             
-            Text("Stage \(stage.id): \(stage.name)")
+            Text(verbatim: L10n.format("Stage %lld: %@", Int64(stage.id), stage.name))
                 .font(.system(size: 12, weight: stage.isRunning ? .bold : .medium, design: .rounded))
                 .foregroundColor(stage.isRunning ? NXTheme.textPrimary : (stage.isCompleted ? NXTheme.textSecondary : NXTheme.textMuted))
             
