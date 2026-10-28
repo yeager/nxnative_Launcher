@@ -30,16 +30,16 @@ public struct DropZoneView: View {
                         .animation(.spring(response: 0.3, dampingFraction: 0.6), value: isTargeted)
                     
                     VStack(spacing: 4) {
-                        Text(isTargeted ? "Drop files here!" : "Drag & drop game folder or Switch files here")
+                        Text(isTargeted ? L10n.string("Drop files here!") : L10n.string("Drag & drop game folder or Switch files here"))
                             .font(.system(size: 13, weight: .bold, design: .rounded))
                             .foregroundColor(NXTheme.textPrimary)
                         
-                        Text("Supports game folders, NSP, XCI, NSZ, and ZIP archives")
+                        L10nText("Supports game folders, NSP, XCI, NSZ, and ZIP archives")
                             .font(.system(size: 11))
                             .foregroundColor(NXTheme.textSecondary)
                     }
                     
-                    Button("Choose Folder...") {
+                    Button(L10n.string("Choose Folder...")) {
                         viewModel.selectGameFolder()
                     }
                     .buttonStyle(NXSecondaryButtonStyle())
@@ -57,7 +57,7 @@ public struct DropZoneView: View {
                                 .truncationMode(.middle)
                             Spacer()
                             
-                            Button("Clear") {
+                            Button(L10n.string("Clear")) {
                                 viewModel.selectedGameFolder = nil
                             }
                             .buttonStyle(NXSecondaryButtonStyle())

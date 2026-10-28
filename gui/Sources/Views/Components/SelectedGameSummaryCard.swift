@@ -34,7 +34,7 @@ public struct SelectedGameSummaryCard: View {
                 }
                 
                 VStack(alignment: .leading, spacing: 3) {
-                    Text(viewModel.selectedGame?.name ?? "No Game Selected")
+                    Text(viewModel.selectedGame?.name ?? L10n.string("No Game Selected"))
                         .font(.system(size: 13, weight: .bold, design: .rounded))
                         .foregroundColor(NXTheme.textPrimary)
                         .lineLimit(1)
@@ -69,7 +69,7 @@ public struct SelectedGameSummaryCard: View {
                 
                 Spacer()
                 
-                Button("Change Game") {
+                Button(L10n.string("Change Game")) {
                     withAnimation(.easeInOut(duration: 0.25)) {
                         viewModel.goToWizardStep(1)
                     }

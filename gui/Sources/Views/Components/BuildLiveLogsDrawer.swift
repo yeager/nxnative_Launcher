@@ -10,7 +10,7 @@ public struct BuildLiveLogsDrawer: View {
     public var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             HStack {
-                Label("Live Terminal Output", systemImage: "terminal.fill")
+                L10nLabel("Live Terminal Output", systemImage: "terminal.fill")
                     .font(.system(size: 11, weight: .bold))
                     .foregroundColor(NXTheme.textSecondary)
                 Spacer()

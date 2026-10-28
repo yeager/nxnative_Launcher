@@ -51,7 +51,7 @@ public struct SelectableGameCard: View {
                     HStack(spacing: 6) {
                         // Badge: Base (White text for high contrast per user request)
                         if game.baseFile != nil {
-                            Text("Base")
+                            L10nText("Base")
                                 .font(.system(size: 10, weight: .bold))
                                 .padding(.horizontal, 7)
                                 .padding(.vertical, 2)
