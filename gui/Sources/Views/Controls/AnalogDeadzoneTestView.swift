@@ -23,7 +23,7 @@ public struct AnalogDeadzoneTestView: View {
                 Spacer()
 
                 HStack(spacing: 8) {
-                    Text("Deadzone: \(Int(deadzone * 100))%")
+                    Text(verbatim: L10n.format("Deadzone: %lld%%", Int64(deadzone * 100)))
                         .font(.system(size: 11, weight: .semibold, design: .monospaced))
                         .foregroundColor(NXTheme.secondary)
 
@@ -35,10 +35,10 @@ public struct AnalogDeadzoneTestView: View {
 
             HStack(spacing: 32) {
                 // Left Stick Target
-                stickRadarView(label: "Left Stick (LS)", x: leftX, y: leftY)
+                stickRadarView(label: L10n.string("Left Stick (LS)"), x: leftX, y: leftY)
 
                 // Right Stick Target
-                stickRadarView(label: "Right Stick (RS)", x: rightX, y: rightY)
+                stickRadarView(label: L10n.string("Right Stick (RS)"), x: rightX, y: rightY)
 
                 VStack(alignment: .leading, spacing: 4) {
                     L10nText("Live Drift Monitor:")
@@ -46,7 +46,7 @@ public struct AnalogDeadzoneTestView: View {
                         .foregroundColor(NXTheme.textSecondary)
 
                     let isDrifting = isStickDrifting(x: leftX, y: leftY) || isStickDrifting(x: rightX, y: rightY)
-                    Text(isDrifting ? "Drift Detected outside Deadzone" : "Centered & Stable (Within Deadzone)")
+                    Text(isDrifting ? L10n.string("Drift Detected outside Deadzone") : L10n.string("Centered & Stable (Within Deadzone)"))
                         .font(.system(size: 11, weight: .semibold))
                         .foregroundColor(isDrifting ? Color(red: 0.91, green: 0.07, blue: 0.14) : Color(red: 0.13, green: 0.77, blue: 0.37))
 

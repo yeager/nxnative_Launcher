@@ -16,7 +16,7 @@ public struct CompatibilityToolbarView: View {
                         .font(.system(size: 16, weight: .bold, design: .rounded))
                         .foregroundColor(NXTheme.textPrimary)
                     
-                    Text("\(viewModel.compatibleGames.count) verified")
+                    Text(verbatim: L10n.format("%lld verified", Int64(viewModel.compatibleGames.count)))
                         .font(.system(size: 10, weight: .bold, design: .monospaced))
                         .padding(.horizontal, 7)
                         .padding(.vertical, 2)
@@ -34,7 +34,7 @@ public struct CompatibilityToolbarView: View {
                         .foregroundColor(NXTheme.textSecondary)
                     
                     if let date = viewModel.compatibilityLastUpdated {
-                        Text("• Updated \(formattedTime(date))")
+                        Text(verbatim: L10n.format("• Updated %@", formattedTime(date)))
                             .font(.system(size: 10))
                             .foregroundColor(NXTheme.textMuted)
                     }
@@ -112,7 +112,7 @@ public struct CompatibilityToolbarView: View {
                     .cornerRadius(6)
             }
             .buttonStyle(.plain)
-            .help("List View")
+            .help(L10n.string("List View"))
             
             Button(action: {
                 SoundEffectService.shared.play(.click)
@@ -127,7 +127,7 @@ public struct CompatibilityToolbarView: View {
                     .cornerRadius(6)
             }
             .buttonStyle(.plain)
-            .help("Grid View")
+            .help(L10n.string("Grid View"))
         }
         .padding(2)
         .background(NXTheme.glassSurfaceElevated.opacity(0.6))

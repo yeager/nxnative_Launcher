@@ -66,7 +66,7 @@ public struct DependencyRow: View {
                     }
                     .buttonStyle(NXSecondaryButtonStyle())
                     .controlSize(.small)
-                    .help("Reinstall / repair tool")
+                    .help(L10n.string("Reinstall / repair tool"))
                     
                     if !item.isProtected && item.uninstallCommand != nil {
                         Button(role: .destructive) {
@@ -78,7 +78,7 @@ public struct DependencyRow: View {
                         }
                         .buttonStyle(NXSecondaryButtonStyle())
                         .controlSize(.small)
-                        .help("Uninstall tool")
+                        .help(L10n.string("Uninstall tool"))
                     }
                 }
             }
