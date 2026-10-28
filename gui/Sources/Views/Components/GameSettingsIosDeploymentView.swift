@@ -52,7 +52,7 @@ public struct GameSettingsIosDeploymentView: View {
             }
             .buttonStyle(NXSecondaryButtonStyle())
             .controlSize(.mini)
-            .help("Send .ipa directly to iPhone via AirDrop")
+            .help(L10n.string("Send .ipa directly to iPhone via AirDrop"))
 
             Button(action: {
                 SoundEffectService.shared.play(.click)
@@ -65,7 +65,7 @@ public struct GameSettingsIosDeploymentView: View {
             }
             .buttonStyle(NXSecondaryButtonStyle())
             .controlSize(.mini)
-            .help("Show .ipa package in Finder for AltStore, TrollStore or Sideloadly")
+            .help(L10n.string("Show .ipa package in Finder for AltStore, TrollStore or Sideloadly"))
         }
     }
 
@@ -102,7 +102,7 @@ public struct GameSettingsIosDeploymentView: View {
                                 Text(dev.name)
                                     .font(.system(size: 12, weight: .bold))
                                     .foregroundColor(NXTheme.textPrimary)
-                                Text("\(dev.model) • iOS \(dev.osVersion)")
+                                Text(verbatim: L10n.format("%@ • iOS %@", dev.model, dev.osVersion))
                                     .font(.system(size: 10))
                                     .foregroundColor(NXTheme.textSecondary)
                             }
@@ -122,7 +122,7 @@ public struct GameSettingsIosDeploymentView: View {
                         .buttonStyle(NXSecondaryButtonStyle())
                         .controlSize(.small)
 
-                        Button("Install on \(dev.name)") {
+                        Button(L10n.format("Install on %@", dev.name)) {
                             deviceService.installApp(appBundleURL: game.url, on: dev) { success, _ in
                                 if success {
                                     SoundEffectService.shared.play(.click)
